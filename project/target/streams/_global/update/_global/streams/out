@@ -1,0 +1,4 @@
+[debug] "not up to date. inChanged = false, force = false
+[debug] Updating ProjectRef(uri("file:/E:/Degree/3%20Third%20year/REST-AKKA/play-samples-play-java-rest-api-example/project/"), "play-samples-play-java-rest-api-example-build")...
+[debug] Done updating ProjectRef(uri("file:/E:/Degree/3%20Third%20year/REST-AKKA/play-samples-play-java-rest-api-example/project/"), "play-samples-play-java-rest-api-example-build")
+[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.

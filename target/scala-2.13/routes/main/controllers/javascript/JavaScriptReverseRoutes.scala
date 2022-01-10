@@ -10,6 +10,36 @@ import _root_.play.libs.F
 // @LINE:1
 package controllers.javascript {
 
+  // @LINE:1
+  class ReverseHomeController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:1
+    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.index",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + """"})
+        }
+      """
+    )
+  
+    // @LINE:3
+    def hello: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.hello",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "hello"})
+        }
+      """
+    )
+  
+  }
+
   // @LINE:5
   class ReversePeopleController(_prefix: => String) {
 
@@ -74,36 +104,6 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people"})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:1
-  class ReverseHomeController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:3
-    def hello: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.hello",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "hello"})
-        }
-      """
-    )
-  
-    // @LINE:1
-    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.index",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + """"})
         }
       """
     )

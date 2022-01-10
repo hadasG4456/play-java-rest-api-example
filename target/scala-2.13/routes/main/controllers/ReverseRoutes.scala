@@ -10,6 +10,27 @@ import _root_.play.libs.F
 // @LINE:1
 package controllers {
 
+  // @LINE:1
+  class ReverseHomeController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:1
+    def index: Call = {
+      
+      Call("GET", _prefix)
+    }
+  
+    // @LINE:3
+    def hello: Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "hello")
+    }
+  
+  }
+
   // @LINE:5
   class ReversePeopleController(_prefix: => String) {
     def _defaultPrefix: String = {
@@ -51,27 +72,6 @@ package controllers {
     def createPerson(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "api/people")
-    }
-  
-  }
-
-  // @LINE:1
-  class ReverseHomeController(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:3
-    def hello: Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "hello")
-    }
-  
-    // @LINE:1
-    def index: Call = {
-      
-      Call("GET", _prefix)
     }
   
   }

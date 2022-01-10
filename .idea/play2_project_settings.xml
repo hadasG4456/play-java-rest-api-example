@@ -13,7 +13,8 @@
         <entry key="root">
           <value>
             <ProjectSettingsEntry>
-              <option name="confDir" value="E:\Degree\3 Third year\REST-AKKA\play-samples-play-java-rest-api-example\app" />
+              <option name="sourceDir" value="E:\Degree\3 Third year\REST-AKKA\play-samples-play-java-rest-api-example\app" />
+              <option name="confDir" value="C:\Users\dardu\IdeaProjects\Play--Task-manager\app" />
               <option name="templateImports">
                 <list>
                   <option value="_root_.play.twirl.api.TwirlFeatureImports._" />
@@ -43,7 +44,7 @@
                   <option value="play.libs.F" />
                 </list>
               </option>
-              <option name="uri" value="/E:/Degree/3%20Third%20year/REST-AKKA/play-samples-play-java-rest-api-example" />
+              <option name="uri" value="/C:/Users/dardu/IdeaProjects/Play--Task-manager" />
             </ProjectSettingsEntry>
           </value>
         </entry>

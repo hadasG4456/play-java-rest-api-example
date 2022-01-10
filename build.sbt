@@ -7,6 +7,8 @@ lazy val root = (project in file("."))
     libraryDependencies ++= Seq(
       guice,
       javaJpa,
+      javaJdbc,
+      "mysql" % "mysql-connector-java" % "5.1.41",
       "com.h2database" % "h2" % "1.4.199",
       "org.hibernate" % "hibernate-core" % "5.4.9.Final",
       "io.dropwizard.metrics" % "metrics-core" % "4.1.1",
@@ -32,9 +34,5 @@ lazy val gatling = (project in file("gatling"))
       "io.gatling" % "gatling-test-framework" % gatlingVersion % Test
     )
   )
-libraryDependencies ++= Seq(
-  javaJdbc
-)
-libraryDependencies ++= Seq(
-  "mysql" % "mysql-connector-java" % "5.1.41"
-)
+
+

@@ -29,7 +29,8 @@ object timeout extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Ht
       {
 
 
-Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*1.4*/("""
+"""),format.raw/*2.1*/("""<!DOCTYPE html>
 
 <html>
   <head>
@@ -58,9 +59,9 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
               /*
                   -- GENERATED --
                   SOURCE: app/views/timeout.scala.html
-                  HASH: 707038bba0feefdaf13ea48563ac458cfde780c1
-                  MATRIX: 902->1|998->4
-                  LINES: 27->1|32->2
+                  HASH: 8981ee9d041c6ffd889675d11be4fa8ad0404606
+                  MATRIX: 902->1|998->3|1026->5
+                  LINES: 27->1|32->1|33->2
                   -- GENERATED --
               */
           

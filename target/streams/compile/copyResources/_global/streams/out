@@ -1,5 +1,5 @@
 [0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(E:\Degree\3 Third year\REST-AKKA\play-samples-play-java-rest-api-example\conf\application.conf,E:\Degree\3 Third year\REST-AKKA\play-samples-play-java-rest-api-example\target\scala-2.13\classes\application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(E:\Degree\3 Third year\REST-AKKA\play-samples-play-java-rest-api-example\conf\logback.xml,E:\Degree\3 Third year\REST-AKKA\play-samples-play-java-rest-api-example\target\scala-2.13\classes\logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(E:\Degree\3 Third year\REST-AKKA\play-samples-play-java-rest-api-example\conf\routes,E:\Degree\3 Third year\REST-AKKA\play-samples-play-java-rest-api-example\target\scala-2.13\classes\routes)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(E:\Degree\3 Third year\REST-AKKA\play-samples-play-java-rest-api-example\conf\META-INF\persistence.xml,E:\Degree\3 Third year\REST-AKKA\play-samples-play-java-rest-api-example\target\scala-2.13\classes\META-INF\persistence.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Hadas\לימודים\2022-1\AKKA\Play--Task-manager\conf\application.conf,C:\Hadas\לימודים\2022-1\AKKA\Play--Task-manager\target\scala-2.13\classes\application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Hadas\לימודים\2022-1\AKKA\Play--Task-manager\conf\logback.xml,C:\Hadas\לימודים\2022-1\AKKA\Play--Task-manager\target\scala-2.13\classes\logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Hadas\לימודים\2022-1\AKKA\Play--Task-manager\conf\routes,C:\Hadas\לימודים\2022-1\AKKA\Play--Task-manager\target\scala-2.13\classes\routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Hadas\לימודים\2022-1\AKKA\Play--Task-manager\conf\META-INF\persistence.xml,C:\Hadas\לימודים\2022-1\AKKA\Play--Task-manager\target\scala-2.13\classes\META-INF\persistence.xml)[0m

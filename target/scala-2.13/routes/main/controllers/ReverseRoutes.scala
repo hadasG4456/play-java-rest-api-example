@@ -38,37 +38,31 @@ package controllers {
     }
 
   
-    // @LINE:7
+    // @LINE:5
     def allPeople: Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "api/people")
     }
   
-    // @LINE:9
-    def getPerson(id:java.util.UUID): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "api/people/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[java.util.UUID]].unbind("id", id)))
-    }
-  
     // @LINE:14
-    def patchPerson(id:java.util.UUID): Call = {
+    def deletePerson(id:String): Call = {
       
-      Call("PATCH", _prefix + { _defaultPrefix } + "api/people/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[java.util.UUID]].unbind("id", id)))
-    }
-  
-    // @LINE:16
-    def deletePerson(id:java.util.UUID): Call = {
-      
-      Call("DELETE", _prefix + { _defaultPrefix } + "api/people/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[java.util.UUID]].unbind("id", id)))
-    }
-  
-    // @LINE:5
-    def index: Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "api")
+      Call("DELETE", _prefix + { _defaultPrefix } + "api/people/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
     // @LINE:12
+    def patchPerson(id:String): Call = {
+      
+      Call("PATCH", _prefix + { _defaultPrefix } + "api/people/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+    }
+  
+    // @LINE:7
+    def getPerson(id:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "api/people/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+    }
+  
+    // @LINE:10
     def createPerson(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "api/people")

@@ -2,16 +2,14 @@ GET     /                           controllers.HomeController.index
 
 GET     /hello                       controllers.HomeController.hello
 
-GET    /api                            controllers.PeopleController.index
-
 GET     /api/people                      controllers.PeopleController.allPeople
 
-GET    /api/people/:id                 controllers.PeopleController.getPerson(id: java.util.UUID)
+GET    /api/people/:id                 controllers.PeopleController.getPerson(id: String)
 
 +nocsrf
 POST    /api/people                     controllers.PeopleController.createPerson(request: Request)
 
-PATCH   /api/people/:id                 controllers.PeopleController.patchPerson(id: java.util.UUID, request: Request)
+PATCH   /api/people/:id                 controllers.PeopleController.patchPerson(id: String, request: Request)
 
-DELETE  /api/people/:id                 controllers.PeopleController.deletePerson(id: java.util.UUID)
+DELETE  /api/people/:id                 controllers.PeopleController.deletePerson(id: String)
 

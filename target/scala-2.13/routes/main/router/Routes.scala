@@ -41,12 +41,11 @@ class Routes(
   def documentation = List(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """hello""", """controllers.HomeController.hello"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api""", """controllers.PeopleController.index"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people""", """controllers.PeopleController.allPeople"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>""", """controllers.PeopleController.getPerson(id:java.util.UUID)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>""", """controllers.PeopleController.getPerson(id:String)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people""", """controllers.PeopleController.createPerson(request:Request)"""),
-    ("""PATCH""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>""", """controllers.PeopleController.patchPerson(id:java.util.UUID, request:Request)"""),
-    ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>""", """controllers.PeopleController.deletePerson(id:java.util.UUID)"""),
+    ("""PATCH""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>""", """controllers.PeopleController.patchPerson(id:String, request:Request)"""),
+    ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>""", """controllers.PeopleController.deletePerson(id:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -91,28 +90,10 @@ class Routes(
   )
 
   // @LINE:5
-  private[this] lazy val controllers_PeopleController_index2_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api")))
-  )
-  private[this] lazy val controllers_PeopleController_index2_invoker = createInvoker(
-    PeopleController_1.index,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.PeopleController",
-      "index",
-      Nil,
-      "GET",
-      this.prefix + """api""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:7
-  private[this] lazy val controllers_PeopleController_allPeople3_route = Route("GET",
+  private[this] lazy val controllers_PeopleController_allPeople2_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people")))
   )
-  private[this] lazy val controllers_PeopleController_allPeople3_invoker = createInvoker(
+  private[this] lazy val controllers_PeopleController_allPeople2_invoker = createInvoker(
     PeopleController_1.allPeople,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -126,17 +107,17 @@ class Routes(
     )
   )
 
-  // @LINE:9
-  private[this] lazy val controllers_PeopleController_getPerson4_route = Route("GET",
+  // @LINE:7
+  private[this] lazy val controllers_PeopleController_getPerson3_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_PeopleController_getPerson4_invoker = createInvoker(
-    PeopleController_1.getPerson(fakeValue[java.util.UUID]),
+  private[this] lazy val controllers_PeopleController_getPerson3_invoker = createInvoker(
+    PeopleController_1.getPerson(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.PeopleController",
       "getPerson",
-      Seq(classOf[java.util.UUID]),
+      Seq(classOf[String]),
       "GET",
       this.prefix + """api/people/""" + "$" + """id<[^/]+>""",
       """""",
@@ -144,11 +125,11 @@ class Routes(
     )
   )
 
-  // @LINE:12
-  private[this] lazy val controllers_PeopleController_createPerson5_route = Route("POST",
+  // @LINE:10
+  private[this] lazy val controllers_PeopleController_createPerson4_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people")))
   )
-  private[this] lazy val controllers_PeopleController_createPerson5_invoker = createInvoker(
+  private[this] lazy val controllers_PeopleController_createPerson4_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
       PeopleController_1.createPerson(fakeValue[play.mvc.Http.Request]),
@@ -164,19 +145,19 @@ class Routes(
     )
   )
 
-  // @LINE:14
-  private[this] lazy val controllers_PeopleController_patchPerson6_route = Route("PATCH",
+  // @LINE:12
+  private[this] lazy val controllers_PeopleController_patchPerson5_route = Route("PATCH",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_PeopleController_patchPerson6_invoker = createInvoker(
+  private[this] lazy val controllers_PeopleController_patchPerson5_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
-      PeopleController_1.patchPerson(fakeValue[java.util.UUID], fakeValue[play.mvc.Http.Request]),
+      PeopleController_1.patchPerson(fakeValue[String], fakeValue[play.mvc.Http.Request]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.PeopleController",
       "patchPerson",
-      Seq(classOf[java.util.UUID], classOf[play.mvc.Http.Request]),
+      Seq(classOf[String], classOf[play.mvc.Http.Request]),
       "PATCH",
       this.prefix + """api/people/""" + "$" + """id<[^/]+>""",
       """""",
@@ -184,17 +165,17 @@ class Routes(
     )
   )
 
-  // @LINE:16
-  private[this] lazy val controllers_PeopleController_deletePerson7_route = Route("DELETE",
+  // @LINE:14
+  private[this] lazy val controllers_PeopleController_deletePerson6_route = Route("DELETE",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_PeopleController_deletePerson7_invoker = createInvoker(
-    PeopleController_1.deletePerson(fakeValue[java.util.UUID]),
+  private[this] lazy val controllers_PeopleController_deletePerson6_invoker = createInvoker(
+    PeopleController_1.deletePerson(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.PeopleController",
       "deletePerson",
-      Seq(classOf[java.util.UUID]),
+      Seq(classOf[String]),
       "DELETE",
       this.prefix + """api/people/""" + "$" + """id<[^/]+>""",
       """""",
@@ -218,41 +199,35 @@ class Routes(
       }
   
     // @LINE:5
-    case controllers_PeopleController_index2_route(params@_) =>
+    case controllers_PeopleController_allPeople2_route(params@_) =>
       call { 
-        controllers_PeopleController_index2_invoker.call(PeopleController_1.index)
+        controllers_PeopleController_allPeople2_invoker.call(PeopleController_1.allPeople)
       }
   
     // @LINE:7
-    case controllers_PeopleController_allPeople3_route(params@_) =>
-      call { 
-        controllers_PeopleController_allPeople3_invoker.call(PeopleController_1.allPeople)
+    case controllers_PeopleController_getPerson3_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_PeopleController_getPerson3_invoker.call(PeopleController_1.getPerson(id))
       }
   
-    // @LINE:9
-    case controllers_PeopleController_getPerson4_route(params@_) =>
-      call(params.fromPath[java.util.UUID]("id", None)) { (id) =>
-        controllers_PeopleController_getPerson4_invoker.call(PeopleController_1.getPerson(id))
-      }
-  
-    // @LINE:12
-    case controllers_PeopleController_createPerson5_route(params@_) =>
+    // @LINE:10
+    case controllers_PeopleController_createPerson4_route(params@_) =>
       call { 
-        controllers_PeopleController_createPerson5_invoker.call(
+        controllers_PeopleController_createPerson4_invoker.call(
           req => PeopleController_1.createPerson(req))
       }
   
-    // @LINE:14
-    case controllers_PeopleController_patchPerson6_route(params@_) =>
-      call(params.fromPath[java.util.UUID]("id", None)) { (id) =>
-        controllers_PeopleController_patchPerson6_invoker.call(
+    // @LINE:12
+    case controllers_PeopleController_patchPerson5_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_PeopleController_patchPerson5_invoker.call(
           req => PeopleController_1.patchPerson(id, req))
       }
   
-    // @LINE:16
-    case controllers_PeopleController_deletePerson7_route(params@_) =>
-      call(params.fromPath[java.util.UUID]("id", None)) { (id) =>
-        controllers_PeopleController_deletePerson7_invoker.call(PeopleController_1.deletePerson(id))
+    // @LINE:14
+    case controllers_PeopleController_deletePerson6_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_PeopleController_deletePerson6_invoker.call(PeopleController_1.deletePerson(id))
       }
   }
 }

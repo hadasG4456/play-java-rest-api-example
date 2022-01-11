@@ -48,7 +48,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:7
+    // @LINE:5
     def allPeople: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PeopleController.allPeople",
       """
@@ -58,47 +58,37 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:9
-    def getPerson: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PeopleController.getPerson",
-      """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[java.util.UUID]].javascriptUnbind + """)("id", id0))})
-        }
-      """
-    )
-  
     // @LINE:14
-    def patchPerson: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PeopleController.patchPerson",
-      """
-        function(id0) {
-          return _wA({method:"PATCH", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[java.util.UUID]].javascriptUnbind + """)("id", id0))})
-        }
-      """
-    )
-  
-    // @LINE:16
     def deletePerson: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PeopleController.deletePerson",
       """
         function(id0) {
-          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[java.util.UUID]].javascriptUnbind + """)("id", id0))})
-        }
-      """
-    )
-  
-    // @LINE:5
-    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.PeopleController.index",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api"})
+          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
         }
       """
     )
   
     // @LINE:12
+    def patchPerson: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.PeopleController.patchPerson",
+      """
+        function(id0) {
+          return _wA({method:"PATCH", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:7
+    def getPerson: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.PeopleController.getPerson",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:10
     def createPerson: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PeopleController.createPerson",
       """

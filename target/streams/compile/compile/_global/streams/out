@@ -1,12 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0mE:\Degree\3 Third year\REST-AKKA\play-samples-play-java-rest-api-example\app\Module.java:7:1: package v1.post does not exist[0m
-[0m[[0m[31merror[0m] [0m[0mv1.post.PostRepository[0m
-[0m[[0m[31merror[0m] [0m[0mE:\Degree\3 Third year\REST-AKKA\play-samples-play-java-rest-api-example\app\Module.java:8:1: package v1.post does not exist[0m
-[0m[[0m[31merror[0m] [0m[0mv1.post.JPAPostRepository[0m
-[0m[[0m[31merror[0m] [0m[0mE:\Degree\3 Third year\REST-AKKA\play-samples-play-java-rest-api-example\app\Module.java:28:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   class JPAPostRepository[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class Module[0m
-[0m[[0m[31merror[0m] [0m[0mJPAPostRepository[0m
-[0m[[0m[31merror[0m] [0m[0mE:\Degree\3 Third year\REST-AKKA\play-samples-play-java-rest-api-example\app\Module.java:28:1: cannot find symbol[0m
-[0m[[0m[31merror[0m] [0m[0m  symbol:   class PostRepository[0m
-[0m[[0m[31merror[0m] [0m[0m  location: class Module[0m
-[0m[[0m[31merror[0m] [0m[0mPostRepository[0m
+[debug] Acquiring lock on file C:\Hadas\לימודים\2022-1\AKKA\PLAY-DB\project\target\.sbt-compilation-infos\root-compile\.sbt-idea-lock ...
+[debug] Releasing lock on file C:\Hadas\לימודים\2022-1\AKKA\PLAY-DB\project\target\.sbt-compilation-infos\root-compile\.sbt-idea-lock.

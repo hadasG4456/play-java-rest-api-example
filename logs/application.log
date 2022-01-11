@@ -1,12 +1,123 @@
-2022-01-10 12:41:37,656 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-4 - Database [default] initialized
-2022-01-10 12:41:37,669 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
-2022-01-10 12:41:37,817 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-4 - datasource [default] bound to JNDI as DefaultDS
-2022-01-10 12:41:37,887 [INFO] from akka.event.slf4j.Slf4jLogger in application-akka.actor.default-dispatcher-5 - Slf4jLogger started
-2022-01-10 12:41:38,242 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-4 - Application started (Dev) (no global state)
-2022-01-10 12:42:58,097 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-8-thread-5 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
-2022-01-10 12:42:58,099 [INFO] from akka.actor.CoordinatedShutdown in play-dev-mode-akka.actor.default-dispatcher-12 - Running CoordinatedShutdown with reason [ServerStoppedReason]
-2022-01-10 12:42:58,101 [INFO] from play.core.server.AkkaHttpServer in pool-8-thread-5 - Stopping Akka HTTP server...
-2022-01-10 12:42:58,107 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-5 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
-2022-01-10 12:42:58,118 [INFO] from akka.actor.CoordinatedShutdown in application-akka.actor.default-dispatcher-5 - Running CoordinatedShutdown with reason [ApplicationStoppedReason]
-2022-01-10 12:42:58,131 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-3 - Shutting down connection pool.
-2022-01-10 12:42:58,191 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-2 - Running provided shutdown stop hooks
+2022-01-11 14:31:48,167 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-5 - Database [default] initialized
+2022-01-11 14:31:48,174 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-5 - Creating Pool for datasource 'default'
+2022-01-11 14:31:48,279 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-5 - datasource [default] bound to JNDI as DefaultDS
+2022-01-11 14:31:48,336 [INFO] from akka.event.slf4j.Slf4jLogger in application-akka.actor.default-dispatcher-6 - Slf4jLogger started
+2022-01-11 14:31:48,678 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-5 - Application started (Dev) (no global state)
+2022-01-11 14:31:52,808 [WARN] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-akka.actor.default-dispatcher-6 - SQL Error: 90004, SQLState: 90004
+2022-01-11 14:31:52,812 [ERROR] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-akka.actor.default-dispatcher-6 - Hexadecimal string contains non-hex character: "f281de91-e6d8-4560-ab68-ee5b37cc6699"; SQL statement:
+insert into people (emails, favoriteProgrammingLanguage, name, id) values (?, ?, ?, ?) -- (?1, ?2, ?3, ?4) [90004-199]
+2022-01-11 14:31:52,860 [ERROR] from play.api.http.DefaultHttpErrorHandler in application-akka.actor.default-dispatcher-6 - 
+
+! @7mb1b33kk - Internal server error, for (POST) [/api/people] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[RollbackException: Error while committing the transaction]]
+	at play.api.http.HttpErrorHandlerExceptions$.$anonfun$convertToPlayException$2(HttpErrorHandler.scala:381)
+	at scala.Option.map(Option.scala:242)
+	at play.api.http.HttpErrorHandlerExceptions$.convertToPlayException(HttpErrorHandler.scala:380)
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:373)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:264)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:430)
+	at play.core.server.AkkaHttpServer$$anonfun$2.applyOrElse(AkkaHttpServer.scala:422)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:454)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:63)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:100)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:100)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:49)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:48)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: javax.persistence.RollbackException: Error while committing the transaction
+	at org.hibernate.internal.ExceptionConverterImpl.convertCommitException(ExceptionConverterImpl.java:81)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:104)
+	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:175)
+	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:126)
+	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:101)
+	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:110)
+	at data.domain.PeopleDAO.create(PeopleDAO.java:21)
+	at data.services.PeopleService.create(PeopleService.java:33)
+	at controllers.PeopleController.createPerson(PeopleController.java:38)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$11(Routes.scala:217)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:150)
+	at play.core.routing.HandlerInvokerFactory$$anon$8.resultCall(HandlerInvoker.scala:149)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4$$anon$5.invocation(HandlerInvoker.scala:115)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:119)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:33)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:175)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:672)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:431)
+	at play.core.j.HttpExecutionContext.$anonfun$execute$1(HttpExecutionContext.scala:64)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:59)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:393)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:276)
+	at scala.concurrent.impl.Promise$DefaultPromise.map(Promise.scala:146)
+	at scala.concurrent.Future$.apply(Future.scala:672)
+	at play.core.j.JavaAction.apply(JavaAction.scala:176)
+	at play.api.mvc.Action.$anonfun$apply$4(Action.scala:82)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:434)
+	... 12 common frames omitted
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.DataException: could not execute statement
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:154)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
+	at org.hibernate.internal.ExceptionConverterImpl.convertCommitException(ExceptionConverterImpl.java:65)
+	... 40 common frames omitted
+Caused by: org.hibernate.exception.DataException: could not execute statement
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:52)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:200)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3208)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3722)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:91)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:348)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:108)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1344)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:435)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3221)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2389)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	... 39 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLDataException: Hexadecimal string contains non-hex character: "f281de91-e6d8-4560-ab68-ee5b37cc6699"; SQL statement:
+insert into people (emails, favoriteProgrammingLanguage, name, id) values (?, ?, ?, ?) -- (?1, ?2, ?3, ?4) [90004-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:587)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:1055)
+	at org.h2.value.Value.convertToBytes(Value.java:1149)
+	at org.h2.value.Value.convertTo(Value.java:782)
+	at org.h2.value.Value.convertTo(Value.java:735)
+	at org.h2.table.Column.convert(Column.java:199)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:164)
+	at org.h2.command.dml.Insert.update(Insert.java:132)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:200)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:154)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	... 58 common frames omitted
+2022-01-11 14:38:27,562 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-1153-thread-5 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2022-01-11 14:38:27,566 [INFO] from akka.actor.CoordinatedShutdown in play-dev-mode-akka.actor.default-dispatcher-8 - Running CoordinatedShutdown with reason [ServerStoppedReason]
+2022-01-11 14:38:27,568 [INFO] from play.core.server.AkkaHttpServer in pool-1153-thread-5 - Stopping Akka HTTP server...
+2022-01-11 14:38:27,582 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-4 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2022-01-11 14:38:27,604 [INFO] from akka.actor.CoordinatedShutdown in application-akka.actor.default-dispatcher-6 - Running CoordinatedShutdown with reason [ApplicationStoppedReason]
+2022-01-11 14:38:27,618 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
+2022-01-11 14:38:27,904 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-4 - Running provided shutdown stop hooks

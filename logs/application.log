@@ -1,14 +1,14 @@
-2022-01-11 14:31:48,167 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-5 - Database [default] initialized
-2022-01-11 14:31:48,174 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-5 - Creating Pool for datasource 'default'
-2022-01-11 14:31:48,279 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-5 - datasource [default] bound to JNDI as DefaultDS
-2022-01-11 14:31:48,336 [INFO] from akka.event.slf4j.Slf4jLogger in application-akka.actor.default-dispatcher-6 - Slf4jLogger started
-2022-01-11 14:31:48,678 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-5 - Application started (Dev) (no global state)
-2022-01-11 14:31:52,808 [WARN] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-akka.actor.default-dispatcher-6 - SQL Error: 90004, SQLState: 90004
-2022-01-11 14:31:52,812 [ERROR] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-akka.actor.default-dispatcher-6 - Hexadecimal string contains non-hex character: "f281de91-e6d8-4560-ab68-ee5b37cc6699"; SQL statement:
-insert into people (emails, favoriteProgrammingLanguage, name, id) values (?, ?, ?, ?) -- (?1, ?2, ?3, ?4) [90004-199]
-2022-01-11 14:31:52,860 [ERROR] from play.api.http.DefaultHttpErrorHandler in application-akka.actor.default-dispatcher-6 - 
+2022-01-11 16:07:34,161 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [default] initialized
+2022-01-11 16:07:34,164 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
+2022-01-11 16:07:34,227 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-7 - datasource [default] bound to JNDI as DefaultDS
+2022-01-11 16:07:34,290 [INFO] from akka.event.slf4j.Slf4jLogger in application-akka.actor.default-dispatcher-6 - Slf4jLogger started
+2022-01-11 16:07:34,447 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev) (no global state)
+2022-01-11 16:10:57,697 [WARN] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-akka.actor.default-dispatcher-6 - SQL Error: 23505, SQLState: 23505
+2022-01-11 16:10:57,699 [ERROR] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-akka.actor.default-dispatcher-6 - Unique index or primary key violation: "PUBLIC.UK_GK27YG27U196AL533NDLIPXAI_INDEX_4 ON PUBLIC.PEOPLEDO(EMAILS) VALUES 1"; SQL statement:
+insert into PeopleDO (emails, favoriteProgrammingLanguage, name, id) values (?, ?, ?, ?) [23505-199]
+2022-01-11 16:10:57,709 [ERROR] from play.api.http.DefaultHttpErrorHandler in application-akka.actor.default-dispatcher-6 - 
 
-! @7mb1b33kk - Internal server error, for (POST) [/api/people] ->
+! @7mb1o39p5 - Internal server error, for (POST) [/api/people] ->
  
 play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[RollbackException: Error while committing the transaction]]
 	at play.api.http.HttpErrorHandlerExceptions$.$anonfun$convertToPlayException$2(HttpErrorHandler.scala:381)
@@ -38,7 +38,7 @@ Caused by: javax.persistence.RollbackException: Error while committing the trans
 	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:126)
 	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:101)
 	at play.db.jpa.DefaultJPAApi.withTransaction(DefaultJPAApi.java:110)
-	at data.domain.PeopleDAO.create(PeopleDAO.java:21)
+	at data.domain.PeopleDAO.create(PeopleDAO.java:22)
 	at data.services.PeopleService.create(PeopleService.java:33)
 	at controllers.PeopleController.createPerson(PeopleController.java:38)
 	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$11(Routes.scala:217)
@@ -62,13 +62,13 @@ Caused by: javax.persistence.RollbackException: Error while committing the trans
 	at play.api.mvc.Action.$anonfun$apply$4(Action.scala:82)
 	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:434)
 	... 12 common frames omitted
-Caused by: javax.persistence.PersistenceException: org.hibernate.exception.DataException: could not execute statement
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
 	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:154)
 	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
 	at org.hibernate.internal.ExceptionConverterImpl.convertCommitException(ExceptionConverterImpl.java:65)
 	... 40 common frames omitted
-Caused by: org.hibernate.exception.DataException: could not execute statement
-	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:52)
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:59)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
@@ -93,18 +93,17 @@ Caused by: org.hibernate.exception.DataException: could not execute statement
 	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
 	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
 	... 39 common frames omitted
-Caused by: org.h2.jdbc.JdbcSQLDataException: Hexadecimal string contains non-hex character: "f281de91-e6d8-4560-ab68-ee5b37cc6699"; SQL statement:
-insert into people (emails, favoriteProgrammingLanguage, name, id) values (?, ?, ?, ?) -- (?1, ?2, ?3, ?4) [90004-199]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:587)
+Caused by: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation: "PUBLIC.UK_GK27YG27U196AL533NDLIPXAI_INDEX_4 ON PUBLIC.PEOPLEDO(EMAILS) VALUES 1"; SQL statement:
+insert into PeopleDO (emails, favoriteProgrammingLanguage, name, id) values (?, ?, ?, ?) [23505-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:457)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
 	at org.h2.message.DbException.get(DbException.java:205)
 	at org.h2.message.DbException.get(DbException.java:181)
-	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:1055)
-	at org.h2.value.Value.convertToBytes(Value.java:1149)
-	at org.h2.value.Value.convertTo(Value.java:782)
-	at org.h2.value.Value.convertTo(Value.java:735)
-	at org.h2.table.Column.convert(Column.java:199)
-	at org.h2.command.dml.Insert.insertRows(Insert.java:164)
+	at org.h2.index.BaseIndex.getDuplicateKeyException(BaseIndex.java:103)
+	at org.h2.mvstore.db.MVSecondaryIndex.checkUnique(MVSecondaryIndex.java:220)
+	at org.h2.mvstore.db.MVSecondaryIndex.add(MVSecondaryIndex.java:196)
+	at org.h2.mvstore.db.MVTable.addRow(MVTable.java:546)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:180)
 	at org.h2.command.dml.Insert.update(Insert.java:132)
 	at org.h2.command.CommandContainer.update(CommandContainer.java:133)
 	at org.h2.command.Command.executeUpdate(Command.java:267)
@@ -114,10 +113,10 @@ insert into people (emails, favoriteProgrammingLanguage, name, id) values (?, ?,
 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
 	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
 	... 58 common frames omitted
-2022-01-11 14:38:27,562 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-1153-thread-5 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
-2022-01-11 14:38:27,566 [INFO] from akka.actor.CoordinatedShutdown in play-dev-mode-akka.actor.default-dispatcher-8 - Running CoordinatedShutdown with reason [ServerStoppedReason]
-2022-01-11 14:38:27,568 [INFO] from play.core.server.AkkaHttpServer in pool-1153-thread-5 - Stopping Akka HTTP server...
-2022-01-11 14:38:27,582 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-4 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
-2022-01-11 14:38:27,604 [INFO] from akka.actor.CoordinatedShutdown in application-akka.actor.default-dispatcher-6 - Running CoordinatedShutdown with reason [ApplicationStoppedReason]
-2022-01-11 14:38:27,618 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
-2022-01-11 14:38:27,904 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-4 - Running provided shutdown stop hooks
+2022-01-11 16:12:05,639 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-1263-thread-1 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2022-01-11 16:12:05,641 [INFO] from akka.actor.CoordinatedShutdown in play-dev-mode-akka.actor.default-dispatcher-11 - Running CoordinatedShutdown with reason [ServerStoppedReason]
+2022-01-11 16:12:05,642 [INFO] from play.core.server.AkkaHttpServer in pool-1263-thread-1 - Stopping Akka HTTP server...
+2022-01-11 16:12:05,647 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-4 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2022-01-11 16:12:05,670 [INFO] from akka.actor.CoordinatedShutdown in application-akka.actor.default-dispatcher-6 - Running CoordinatedShutdown with reason [ApplicationStoppedReason]
+2022-01-11 16:12:05,676 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
+2022-01-11 16:12:05,739 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-4 - Running provided shutdown stop hooks

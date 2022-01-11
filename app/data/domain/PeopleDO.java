@@ -4,19 +4,19 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "people")
+@Table(name = "PeopleDO")
 public class PeopleDO {
     @Id
-    @Column(name = "id")
+    @Column(name = "id", nullable = false, unique = true)
     private String id;
 
-    @Column (name = "name")
+    @Column (name = "name", nullable = false)
     private String name;
 
-    @Column (name = "emails")
+    @Column (name = "emails", unique = true, nullable = false)
     private String emails;
 
-    @Column (name = "favoriteProgrammingLanguage")
+    @Column (name = "favoriteProgrammingLanguage", nullable = false)
     private String favoriteProgrammingLanguage;
 
     //TODO: connect tasks to person

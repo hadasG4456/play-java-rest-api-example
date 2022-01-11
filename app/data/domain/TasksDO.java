@@ -18,6 +18,7 @@ public class TasksDO {
     @Column
     private String details;
 
+    @Temporal(value = TemporalType.DATE)
     @Column
     private Date dueDate;
 

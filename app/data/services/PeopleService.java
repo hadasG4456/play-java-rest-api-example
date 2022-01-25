@@ -15,8 +15,8 @@ public class PeopleService {
     private PeopleDAO peopleDAO;
 
     public List<PeopleDTO> getAll() {
-        List<PeopleDO> studentDOList = peopleDAO.find();
-        return studentDOList.stream().map(domain -> PeopleMapper.toTransfer(domain)).collect(Collectors.toList());
+        List<PeopleDO> peopleDOList = peopleDAO.find();
+        return peopleDOList.stream().map(domain -> PeopleMapper.toTransfer(domain)).collect(Collectors.toList());
     }
     public Optional<PeopleDTO> getById(String id) {
         PeopleDO peopleDO =peopleDAO.find(id);

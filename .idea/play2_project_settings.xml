@@ -13,8 +13,8 @@
         <entry key="root">
           <value>
             <ProjectSettingsEntry>
-              <option name="sourceDir" value="C:\Users\dardu\IdeaProjects\Play--Task-manager\app" />
-              <option name="confDir" value="C:\Hadas\לימודים\2022-1\AKKA\PLAY-DB\app" />
+              <option name="sourceDir" value="C:\Hadas\לימודים\2022-1\AKKA\PLAY-DB\app" />
+              <option name="confDir" value="E:\Degree\3 Third year\REST-AKKA\Project\Play--Task-manager\app" />
               <option name="templateImports">
                 <list>
                   <option value="_root_.play.twirl.api.TwirlFeatureImports._" />
@@ -44,7 +44,7 @@
                   <option value="play.libs.F" />
                 </list>
               </option>
-              <option name="uri" value="/C:/Hadas/לימודים/2022-1/AKKA/PLAY-DB" />
+              <option name="uri" value="/E:/Degree/3%20Third%20year/REST-AKKA/Project/Play--Task-manager" />
             </ProjectSettingsEntry>
           </value>
         </entry>

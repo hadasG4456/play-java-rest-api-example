@@ -14,8 +14,8 @@ public class TaskService {
     @Inject
     private TasksDAO tasksDAO;
 
-    public List<TasksDTO> getAll() {
-        List<TasksDO> tasksDOList = tasksDAO.find();
+    public List<TasksDTO> getAll(String ownerId) {
+        List<TasksDO> tasksDOList = tasksDAO.find(ownerId, true);
         return tasksDOList.stream().map(domain -> TasksMapper.toTransfer(domain)).collect(Collectors.toList());
     }
 
@@ -34,7 +34,7 @@ public class TaskService {
         return TasksMapper.toTransfer(tasksDO);
     }
 
-    public Optional<TasksDTO> update(TasksDTO tasksDTO, String id) {
+    public Optional<TasksDTO> update(TasksDTO tasksDTO, String id, String ownerId) {
         TasksDO fromDb = tasksDAO.find(id);
         if (fromDb == null) {
             return Optional.empty();
@@ -49,7 +49,7 @@ public class TaskService {
         return Optional.of(TasksMapper.toTransfer(fromDb));
     }
 
-    public void delete(String id) {
-        tasksDAO.delete(id);
+    public void delete(String id, String ownerId) {
+        tasksDAO.delete(id, ownerId);
     }
 }

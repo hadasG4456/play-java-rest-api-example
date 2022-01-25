@@ -1,3 +1,5 @@
+# People:
+
 GET     /                           controllers.HomeController.index
 
 GET     /hello                       controllers.HomeController.hello
@@ -12,4 +14,10 @@ POST    /api/people                     controllers.PeopleController.createPerso
 PATCH   /api/people/:id                 controllers.PeopleController.patchPerson(id: String, request: Request)
 
 DELETE  /api/people/:id                 controllers.PeopleController.deletePerson(id: String)
+
+# Tasks:
+
+GET     /api/people/:id/tasks           controllers.TasksController.allTasks(id: String)
+
+GET     /api/tasks/:id                  controllers.TasksController.getTask(id: String)
 

@@ -41,7 +41,7 @@ package controllers {
     // @LINE:7
     def allPeople: Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "api/people")
+      Call("GET", _prefix + { _defaultPrefix } + "api/people/")
     }
   
     // @LINE:16
@@ -65,7 +65,7 @@ package controllers {
     // @LINE:12
     def createPerson(): Call = {
       
-      Call("POST", _prefix + { _defaultPrefix } + "api/people")
+      Call("POST", _prefix + { _defaultPrefix } + "api/people/")
     }
   
   }

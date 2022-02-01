@@ -1,4 +1,4 @@
-[debug] "not up to date. inChanged = true, force = false
-[debug] Updating ProjectRef(uri("file:/E:/Degree/3%20Third%20year/REST-AKKA/Project/Play--Task-manager/project/"), "play-task-manager-build")...
-[debug] Done updating ProjectRef(uri("file:/E:/Degree/3%20Third%20year/REST-AKKA/Project/Play--Task-manager/project/"), "play-task-manager-build")
-[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
+[debug] not up to date. inChanged = true, force = false
+[debug] Updating ProjectRef(uri("file:/C:/Hadas/לימודים/2022-1/AKKA/PLAY-DB/project/"), "play-db-build")...
+[warn] Unrecognized repository Scala Plugin Bundled Repository, ignoring it
+[debug] Done updating ProjectRef(uri("file:/C:/Hadas/לימודים/2022-1/AKKA/PLAY-DB/project/"), "play-db-build")

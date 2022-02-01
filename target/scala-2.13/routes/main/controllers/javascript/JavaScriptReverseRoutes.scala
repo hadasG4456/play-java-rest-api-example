@@ -53,7 +53,7 @@ package controllers.javascript {
       "controllers.PeopleController.allPeople",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people/"})
         }
       """
     )
@@ -93,7 +93,7 @@ package controllers.javascript {
       "controllers.PeopleController.createPerson",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people/"})
         }
       """
     )

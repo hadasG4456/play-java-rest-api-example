@@ -24,7 +24,6 @@ public class PeopleController extends Controller {
 
 
     public Result allPeople() {
-        System.out.println("all people");
         return ok(Json.toJson(peopleService.getAll()));}
 
     public Result createPerson(Http.Request request) {

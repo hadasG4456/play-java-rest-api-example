@@ -28,7 +28,6 @@ public class PeopleService {
     }
 
     public PeopleDTO create(PeopleDTO peopleDTO) {
-        System.out.println("create in peopleservice");
         PeopleDO peopleDO = PeopleMapper.fromTransfer(peopleDTO);
         peopleDO = peopleDAO.create(peopleDO);
         return PeopleMapper.toTransfer(peopleDO);

@@ -45,9 +45,9 @@ class Routes(
   def documentation = List(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """hello""", """controllers.HomeController.hello"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people""", """controllers.PeopleController.allPeople"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""", """controllers.PeopleController.allPeople"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>""", """controllers.PeopleController.getPerson(id:String)"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people""", """controllers.PeopleController.createPerson(request:Request)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""", """controllers.PeopleController.createPerson(request:Request)"""),
     ("""PATCH""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>""", """controllers.PeopleController.patchPerson(id:String, request:Request)"""),
     ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>""", """controllers.PeopleController.deletePerson(id:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>/tasks""", """controllers.TasksController.allTasks(id:String)"""),
@@ -97,7 +97,7 @@ class Routes(
 
   // @LINE:7
   private[this] lazy val controllers_PeopleController_allPeople2_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/")))
   )
   private[this] lazy val controllers_PeopleController_allPeople2_invoker = createInvoker(
     PeopleController_1.allPeople,
@@ -107,7 +107,7 @@ class Routes(
       "allPeople",
       Nil,
       "GET",
-      this.prefix + """api/people""",
+      this.prefix + """api/people/""",
       """""",
       Seq()
     )
@@ -133,7 +133,7 @@ class Routes(
 
   // @LINE:12
   private[this] lazy val controllers_PeopleController_createPerson4_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/")))
   )
   private[this] lazy val controllers_PeopleController_createPerson4_invoker = createInvoker(
     
@@ -145,7 +145,7 @@ class Routes(
       "createPerson",
       Seq(classOf[play.mvc.Http.Request]),
       "POST",
-      this.prefix + """api/people""",
+      this.prefix + """api/people/""",
       """""",
       Seq("""nocsrf""")
     )

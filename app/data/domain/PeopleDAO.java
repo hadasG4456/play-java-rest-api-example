@@ -17,8 +17,6 @@ public class PeopleDAO {
     protected JPAApi jpaApi;
 
     public PeopleDO create(PeopleDO peopleDO) {
-        System.out.println("peopleDO create :");
-        System.out.println(peopleDO.getId() + " " + peopleDO.getName() + " " + peopleDO.getEmails());
         jpaApi.withTransaction(entityManager -> { entityManager.persist(peopleDO); });
         return peopleDO;
     }

@@ -10,6 +10,7 @@ import org.springframework.asm.SpringAsmInfo;
 import play.libs.Json;
 import play.mvc.*;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -22,46 +23,49 @@ public class PeopleController extends Controller {
     private PeopleService peopleService;
 
 
-//    public Result index() {
-//        return ok(views.html.index.render());
-//    }
-
     public Result allPeople() {
         System.out.println("all people");
         return ok(Json.toJson(peopleService.getAll()));}
 
-    public Result createPerson(Http.Request request){
-       JsonNode json = request.body().asJson();
+    public Result createPerson(Http.Request request) {
+        JsonNode json = request.body().asJson();
+        PeopleDTO peopleDTO = Json.fromJson(json, PeopleDTO.class);
         try {
-            PeopleDTO peopleDTO = Json.fromJson(json, PeopleDTO.class);
-            System.out.println("copied input to peopleDTO");
             peopleDTO = peopleService.create(peopleDTO);
-            System.out.println("Created peopleDTO in db");
             return ok(Json.toJson(peopleDTO));
         } catch (RuntimeException e) {
-            // Most probably invalid data
-            throw e;
+            badRequest("A person with email '" + peopleDTO.getEmails() + "' already exists.");
         }
-//       return ok(json);
+       return badRequest("A person with email '" + peopleDTO.getEmails() + "' already exists.");
     }
     public Result getPerson(String id){
-
-    Optional<PeopleDTO> person = peopleService.getById(id);
-    return person.isPresent() ? ok(Json.toJson(person.get())) : notFound();
-
+        try {
+            Optional<PeopleDTO> person = peopleService.getById(id);
+            if (person.isPresent())
+               return ok(Json.toJson(person.get()));
+        } catch (Exception e) {
+            return badRequest("A person with the id '" + id + "' does not exist.");
+        }
+        return notFound("A person with the id '" + id + "' does not exist.");
     }
     public Result patchPerson(String id, Http.Request request){
-    JsonNode json = request.body().asJson();
-    try {
-        PeopleDTO peopleDTO = Json.fromJson(json, PeopleDTO.class);
-        Optional<PeopleDTO> person = peopleService.update(peopleDTO, id);
-        return person.isPresent() ? ok(Json.toJson(person.get())) : notFound();
-    } catch (Exception e) {
-        return badRequest(request.body().asJson());
-    }
-    }
-    public  Result deletePerson(String id){
-        return ok("placeholder for id to delete"+id);
-    }
+        try {
+            JsonNode json = request.body().asJson();
+            PeopleDTO peopleDTO = Json.fromJson(json, PeopleDTO.class);
+            Optional<PeopleDTO> person = peopleService.update(peopleDTO, id);
+            return person.isPresent() ? ok(Json.toJson(person.get())) : notFound("A person with the id '" + id + "' does not exist.");
+        } catch (Exception e) {
+            notFound("A person with the id '" + id + "' does not exist.");
+        }
+            return notFound("A person with the id '" + id + "' does not exist.");
+        }
+        public  Result deletePerson(String id){
+            Optional<PeopleDTO> person = peopleService.getById(id);
+            if (person.isPresent()){
+                peopleService.delete(id);
+                return ok("Person with id: "+id + " removed successfully");
+            }
+            return notFound("A person with the id '" + id + "' does not exist.");
+        }
 
 }

@@ -8,24 +8,24 @@ import java.util.UUID;
 @Table(name = "tasks")
 public class TasksDO {
     @Id
-    @Column
+    @Column(name = "id", nullable = false, unique = true)
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private String id;
 
-    @Column
+    @Column (name = "title", nullable = false)
     private String title;
 
-    @Column
+    @Column (name = "details", nullable = false)
     private String details;
 
     @Temporal(value = TemporalType.DATE)
-    @Column
+    @Column (name = "dueDate", nullable = false)
     private Date dueDate;
 
-    @Column
+    @Column (name = "status", nullable = false)
     private String status; //TODO: create a status class
 
-    @Column
+    @Column (name = "ownerId", nullable = false)
     private String ownerId;
 
     public String getId() {

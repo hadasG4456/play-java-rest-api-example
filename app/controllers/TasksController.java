@@ -29,7 +29,7 @@ public class TasksController extends Controller {
 //        } catch (RuntimeException e) {
 //            notFound("A person with email '" + tasksDTO.getOwnerId() + "' does not exist.");
 //        }
-//        return notFound("A person with email '" + tasksDTO.getOwnerId() + "' does not exist.");
+        return notFound("A person with id '" + id + "' does not exist.");
     }
     //GET     /api/tasks/:id
     public Result getTask(String id){

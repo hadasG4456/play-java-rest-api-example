@@ -84,6 +84,12 @@ package controllers {
     }
   
     // @LINE:22
+    def createTask(id:String): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "api/people/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)) + "/tasks")
+    }
+  
+    // @LINE:24
     def getTask(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "api/tasks/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))

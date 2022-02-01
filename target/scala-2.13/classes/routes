@@ -19,5 +19,7 @@ DELETE  /api/people/:id                 controllers.PeopleController.deletePerso
 
 GET     /api/people/:id/tasks           controllers.TasksController.allTasks(id: String)
 
+POST    /api/people/:id/tasks           controllers.TasksController.createTask(id: String, request: Request)
+
 GET     /api/tasks/:id                  controllers.TasksController.getTask(id: String)
 

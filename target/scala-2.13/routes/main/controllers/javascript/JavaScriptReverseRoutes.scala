@@ -119,6 +119,16 @@ package controllers.javascript {
     )
   
     // @LINE:22
+    def createTask: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TasksController.createTask",
+      """
+        function(id0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0)) + "/tasks"})
+        }
+      """
+    )
+  
+    // @LINE:24
     def getTask: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TasksController.getTask",
       """

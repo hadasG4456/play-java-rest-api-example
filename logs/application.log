@@ -1,5 +1,114 @@
-2022-02-01 21:50:51,838 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-8 - Database [default] initialized
-2022-02-01 21:50:51,841 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-8 - Creating Pool for datasource 'default'
-2022-02-01 21:50:51,894 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-8 - datasource [default] bound to JNDI as DefaultDS
-2022-02-01 21:50:51,918 [INFO] from akka.event.slf4j.Slf4jLogger in application-akka.actor.default-dispatcher-6 - Slf4jLogger started
-2022-02-01 21:50:52,096 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-8 - Application started (Dev) (no global state)
+2022-02-01 22:11:57,989 [ERROR] from play.api.http.DefaultHttpErrorHandler in play-dev-mode-akka.actor.default-dispatcher-8 - 
+
+! @7mh0bpb4f - Internal server error, for (GET) [/api/people/] ->
+ 
+play.api.PlayException: Cannot load play.http.filters[play.http.filters [filters.MyFilters] was not loaded.]
+	at play.utils.Reflect$.loadClass$1(Reflect.scala:129)
+	at play.utils.Reflect$.configuredClass(Reflect.scala:142)
+	at play.utils.Reflect$.bindingsFromConfiguration(Reflect.scala:63)
+	at play.api.http.HttpFilters$.bindingsFromConfiguration(HttpFilters.scala:56)
+	at play.api.inject.BuiltinModule$$anonfun$$lessinit$greater$1.$anonfun$new$3(BuiltinModule.scala:94)
+	at play.api.inject.BuiltinModule$$anonfun$$lessinit$greater$1.$anonfun$new$1(BuiltinModule.scala:44)
+	at scala.collection.StrictOptimizedIterableOps.flatMap(StrictOptimizedIterableOps.scala:117)
+	at scala.collection.StrictOptimizedIterableOps.flatMap$(StrictOptimizedIterableOps.scala:104)
+	at scala.collection.immutable.ArraySeq.flatMap(ArraySeq.scala:35)
+	at play.api.inject.BuiltinModule$$anonfun$$lessinit$greater$1.dynamicBindings$1(BuiltinModule.scala:44)
+	at play.api.inject.BuiltinModule$$anonfun$$lessinit$greater$1.apply(BuiltinModule.scala:92)
+	at play.api.inject.BuiltinModule$$anonfun$$lessinit$greater$1.apply(BuiltinModule.scala:42)
+	at play.api.inject.SimpleModule.bindings(Module.scala:94)
+	at play.api.inject.SimpleModule.bindings(Module.scala:90)
+	at play.api.inject.guice.GuiceableModuleConversions.guice(GuiceInjectorBuilder.scala:365)
+	at play.api.inject.guice.GuiceableModuleConversions.guice$(GuiceInjectorBuilder.scala:364)
+	at play.api.inject.guice.GuiceableModule$.guice(GuiceInjectorBuilder.scala:297)
+	at play.api.inject.guice.GuiceableModuleConversions$$anon$2.$anonfun$guiced$2(GuiceInjectorBuilder.scala:344)
+	at scala.collection.immutable.List.map(List.scala:246)
+	at scala.collection.immutable.List.map(List.scala:79)
+	at play.api.inject.guice.GuiceableModuleConversions$$anon$2.guiced(GuiceInjectorBuilder.scala:344)
+	at play.api.inject.guice.GuiceableModule$.$anonfun$guiced$1(GuiceInjectorBuilder.scala:322)
+	at scala.collection.immutable.List.flatMap(List.scala:293)
+	at scala.collection.immutable.List.flatMap(List.scala:79)
+	at play.api.inject.guice.GuiceableModule$.guiced(GuiceInjectorBuilder.scala:321)
+	at play.api.inject.guice.GuiceBuilder.createModule(GuiceInjectorBuilder.scala:185)
+	at play.api.inject.guice.GuiceApplicationBuilder.applicationModule(GuiceApplicationBuilder.scala:122)
+	at play.api.inject.guice.GuiceBuilder.injector(GuiceInjectorBuilder.scala:200)
+	at play.api.inject.guice.GuiceApplicationBuilder.build(GuiceApplicationBuilder.scala:155)
+	at play.api.inject.guice.GuiceApplicationLoader.load(GuiceApplicationLoader.scala:21)
+	at play.core.server.DevServerStart$$anon$1.$anonfun$reload$2(DevServerStart.scala:193)
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:22)
+	at play.core.server.DevServerStart$$anon$1.reload(DevServerStart.scala:185)
+	at play.core.server.DevServerStart$$anon$1.get(DevServerStart.scala:148)
+	at play.core.server.AkkaHttpServer.handleRequest(AkkaHttpServer.scala:302)
+	at play.core.server.AkkaHttpServer.$anonfun$createServerBinding$1(AkkaHttpServer.scala:224)
+	at akka.stream.impl.fusing.MapAsync$$anon$30.onPush(Ops.scala:1307)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:542)
+	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:496)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:390)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:650)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:521)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:625)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:800)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:818)
+	at akka.actor.Actor.aroundReceive(Actor.scala:537)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:716)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:580)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:548)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1020)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1656)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1594)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+Caused by: java.lang.ClassNotFoundException: filters.MyFilters
+	at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:471)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:588)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at play.utils.Reflect$.loadClass$1(Reflect.scala:123)
+	... 57 common frames omitted
+2022-02-01 22:12:48,570 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-2274-thread-2 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2022-02-01 22:12:48,572 [INFO] from akka.actor.CoordinatedShutdown in play-dev-mode-akka.actor.default-dispatcher-8 - Running CoordinatedShutdown with reason [ServerStoppedReason]
+2022-02-01 22:12:48,574 [INFO] from play.core.server.AkkaHttpServer in pool-2274-thread-2 - Stopping Akka HTTP server...
+2022-02-01 22:12:48,581 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-5 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2022-02-01 22:12:48,604 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-2 - Running provided shutdown stop hooks
+2022-02-01 22:12:57,654 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-9 - Database [default] initialized
+2022-02-01 22:12:57,657 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-9 - Creating Pool for datasource 'default'
+2022-02-01 22:12:57,710 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-9 - datasource [default] bound to JNDI as DefaultDS
+2022-02-01 22:12:57,761 [INFO] from akka.event.slf4j.Slf4jLogger in application-akka.actor.default-dispatcher-6 - Slf4jLogger started
+2022-02-01 22:12:57,901 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-9 - Application started (Dev) (no global state)
+2022-02-01 22:13:59,331 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-2278-thread-9 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2022-02-01 22:13:59,336 [INFO] from play.core.server.AkkaHttpServer in pool-2278-thread-9 - Stopping Akka HTTP server...
+2022-02-01 22:13:59,333 [INFO] from akka.actor.CoordinatedShutdown in play-dev-mode-akka.actor.default-dispatcher-12 - Running CoordinatedShutdown with reason [ServerStoppedReason]
+2022-02-01 22:13:59,345 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-6 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2022-02-01 22:13:59,365 [INFO] from akka.actor.CoordinatedShutdown in application-akka.actor.default-dispatcher-6 - Running CoordinatedShutdown with reason [ApplicationStoppedReason]
+2022-02-01 22:13:59,376 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
+2022-02-01 22:13:59,607 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-13 - Running provided shutdown stop hooks
+2022-02-01 22:14:46,800 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [default] initialized
+2022-02-01 22:14:46,803 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
+2022-02-01 22:14:46,861 [INFO] from play.api.db.HikariCPConnectionPool in play-dev-mode-akka.actor.default-dispatcher-7 - datasource [default] bound to JNDI as DefaultDS
+2022-02-01 22:14:46,919 [INFO] from akka.event.slf4j.Slf4jLogger in application-akka.actor.default-dispatcher-6 - Slf4jLogger started
+2022-02-01 22:14:47,055 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    play.filters.cors.CORSFilter
+
+2022-02-01 22:14:47,125 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev) (no global state)
+2022-02-01 22:15:00,309 [WARN] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-akka.actor.default-dispatcher-6 - SQL Error: 23505, SQLState: 23505
+2022-02-01 22:15:00,311 [ERROR] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-akka.actor.default-dispatcher-6 - Unique index or primary key violation: "PUBLIC.UK_GK27YG27U196AL533NDLIPXAI_INDEX_4 ON PUBLIC.PEOPLEDO(EMAILS) VALUES 2"; SQL statement:
+insert into PeopleDO (emails, favoriteProgrammingLanguage, name, id) values (?, ?, ?, ?) [23505-199]
+2022-02-01 22:15:58,114 [WARN] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-akka.actor.default-dispatcher-6 - SQL Error: 23505, SQLState: 23505
+2022-02-01 22:15:58,114 [ERROR] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-akka.actor.default-dispatcher-6 - Unique index or primary key violation: "PUBLIC.UK_GK27YG27U196AL533NDLIPXAI_INDEX_4 ON PUBLIC.PEOPLEDO(EMAILS) VALUES 2"; SQL statement:
+update PeopleDO set emails=?, favoriteProgrammingLanguage=?, name=? where id=? [23505-199]
+2022-02-01 22:16:33,614 [WARN] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-akka.actor.default-dispatcher-6 - SQL Error: 23505, SQLState: 23505
+2022-02-01 22:16:33,614 [ERROR] from org.hibernate.engine.jdbc.spi.SqlExceptionHelper in application-akka.actor.default-dispatcher-6 - Unique index or primary key violation: "PUBLIC.UK_GK27YG27U196AL533NDLIPXAI_INDEX_4 ON PUBLIC.PEOPLEDO(EMAILS) VALUES 2"; SQL statement:
+update PeopleDO set emails=?, favoriteProgrammingLanguage=?, name=? where id=? [23505-199]
+2022-02-01 22:20:00,690 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-2404-thread-3 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2022-02-01 22:20:00,693 [INFO] from akka.actor.CoordinatedShutdown in play-dev-mode-akka.actor.default-dispatcher-10 - Running CoordinatedShutdown with reason [ServerStoppedReason]
+2022-02-01 22:20:00,695 [INFO] from play.core.server.AkkaHttpServer in pool-2404-thread-3 - Stopping Akka HTTP server...
+2022-02-01 22:20:00,705 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-4 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2022-02-01 22:20:00,731 [INFO] from akka.actor.CoordinatedShutdown in application-akka.actor.default-dispatcher-6 - Running CoordinatedShutdown with reason [ApplicationStoppedReason]
+2022-02-01 22:20:00,761 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-4 - Shutting down connection pool.
+2022-02-01 22:20:01,032 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-12 - Running provided shutdown stop hooks

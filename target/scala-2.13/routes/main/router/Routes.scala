@@ -50,8 +50,8 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""", """controllers.PeopleController.createPerson(request:Request)"""),
     ("""PATCH""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>""", """controllers.PeopleController.patchPerson(id:String, request:Request)"""),
     ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>""", """controllers.PeopleController.deletePerson(id:String)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>/tasks""", """controllers.TasksController.allTasks(id:String)"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>/tasks""", """controllers.TasksController.createTask(id:String, request:Request)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>/tasks/""", """controllers.TasksController.allTasks(id:String)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>/tasks/""", """controllers.TasksController.createTask(id:String, request:Request)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/tasks/""" + "$" + """id<[^/]+>""", """controllers.TasksController.getTask(id:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -192,7 +192,7 @@ class Routes(
 
   // @LINE:20
   private[this] lazy val controllers_TasksController_allTasks7_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/"), DynamicPart("id", """[^/]+""",true), StaticPart("/tasks")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/"), DynamicPart("id", """[^/]+""",true), StaticPart("/tasks/")))
   )
   private[this] lazy val controllers_TasksController_allTasks7_invoker = createInvoker(
     TasksController_2.allTasks(fakeValue[String]),
@@ -202,7 +202,7 @@ class Routes(
       "allTasks",
       Seq(classOf[String]),
       "GET",
-      this.prefix + """api/people/""" + "$" + """id<[^/]+>/tasks""",
+      this.prefix + """api/people/""" + "$" + """id<[^/]+>/tasks/""",
       """""",
       Seq()
     )
@@ -210,7 +210,7 @@ class Routes(
 
   // @LINE:22
   private[this] lazy val controllers_TasksController_createTask8_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/"), DynamicPart("id", """[^/]+""",true), StaticPart("/tasks")))
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/"), DynamicPart("id", """[^/]+""",true), StaticPart("/tasks/")))
   )
   private[this] lazy val controllers_TasksController_createTask8_invoker = createInvoker(
     
@@ -222,7 +222,7 @@ class Routes(
       "createTask",
       Seq(classOf[String], classOf[play.mvc.Http.Request]),
       "POST",
-      this.prefix + """api/people/""" + "$" + """id<[^/]+>/tasks""",
+      this.prefix + """api/people/""" + "$" + """id<[^/]+>/tasks/""",
       """""",
       Seq()
     )

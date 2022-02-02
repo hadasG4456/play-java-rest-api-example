@@ -17,9 +17,9 @@ DELETE  /api/people/:id                 controllers.PeopleController.deletePerso
 
 # Tasks:
 
-GET     /api/people/:id/tasks           controllers.TasksController.allTasks(id: String)
+GET     /api/people/:id/tasks/           controllers.TasksController.allTasks(id: String)
 
-POST    /api/people/:id/tasks           controllers.TasksController.createTask(id: String, request: Request)
+POST    /api/people/:id/tasks/           controllers.TasksController.createTask(id: String, request: Request)
 
 GET     /api/tasks/:id                  controllers.TasksController.getTask(id: String)
 

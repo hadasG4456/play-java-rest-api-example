@@ -13,24 +13,30 @@ import java.util.List;
 
 public class TasksController extends Controller {
     private TaskService taskService;
+    private PeopleController peopleController;
 
-    //GET     /api/people/:id/tasks
+
+    public Result createTask(String ownerid, Http.Request request) {
+        // If the person doesnt exists the getPerson function will throw bad request
+        Result person = peopleController.getPerson(ownerid);
+        JsonNode json = request.body().asJson();
+        TasksDTO tasksDTO = Json.fromJson(json, TasksDTO.class);
+        tasksDTO.setOwnerId(ownerid);
+        try {
+            tasksDTO = taskService.create(tasksDTO);
+            return ok(Json.toJson(tasksDTO));
+        } catch (RuntimeException e) {
+            notFound("A person with email '" + tasksDTO.getOwnerId() + "' does not exist.");
+        }
+        return notFound("A person with id '" + ownerid + "' does not exist.");
+    }
+    //GET     /api/people/:id/tasks/
     public Result allTasks(String ownerId){
         System.out.println("allTasks in Controller");
         List<TasksDTO> tasksDTOList = taskService.getAll(ownerId);
-        return ok(Json.toJson(tasksDTOList));
+        return ok(Json.toJson(taskService.getAll(ownerId)));
     }
-    public Result createTask(String id, Http.Request request) {
-//        JsonNode json = request.body().asJson();
-//        TasksDTO tasksDTO = Json.fromJson(json, TasksDTO.class);
-//        try {
-//            tasksDTO = taskService.create(tasksDTO);
-//            return ok(Json.toJson(tasksDTO));
-//        } catch (RuntimeException e) {
-//            notFound("A person with email '" + tasksDTO.getOwnerId() + "' does not exist.");
-//        }
-        return notFound("A person with id '" + id + "' does not exist.");
-    }
+
     //GET     /api/tasks/:id
     public Result getTask(String id){
         return ok(Json.toJson(taskService.getById(id)));

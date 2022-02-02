@@ -35,6 +35,14 @@ public class TaskService {
 
         return Optional.of(TasksMapper.toTransfer(tasksDO));
     }
+    public Optional<TasksDTO> getByTitle(String title) {
+        TasksDO tasksDO = tasksDAO.findByTitle(title);
+        if (tasksDO == null) {
+            return Optional.empty();
+        }
+
+        return Optional.of(TasksMapper.toTransfer(tasksDO));
+    }
 
     public TasksDTO create(TasksDTO tasksDTO) {
         TasksDO tasksDO = TasksMapper.fromTransfer(tasksDTO);

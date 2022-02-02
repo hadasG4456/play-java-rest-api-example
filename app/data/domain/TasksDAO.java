@@ -84,7 +84,8 @@ public class TasksDAO {
     }
 
     public TasksDO update(TasksDO tasksDO) {
-        jpaApi.withTransaction(entityManager -> {entityManager.merge(tasksDO);});
+        jpaApi.withTransaction(entityManager -> {entityManager.merge(tasksDO);
+            entityManager.flush();});
 
         return tasksDO;
     }

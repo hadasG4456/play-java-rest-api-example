@@ -1,12 +1,14 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.JsonNodeCreator;
 import com.google.inject.Inject;
 import data.domain.Status;
 import data.dto.PeopleDTO;
 import data.dto.TasksDTO;
 import data.services.PeopleService;
 import data.services.TaskService;
+import org.apache.commons.lang3.EnumUtils;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Http;
@@ -26,11 +28,14 @@ public class TasksController extends Controller {
         // If the person doesnt exists the getPerson function will throw bad request
 //        Result person = peopleController.getPerson(ownerid);
         try {
+
             Optional<PeopleDTO> person = peopleService.getById(ownerid);
             if (!person.isPresent())
                 return notFound("A person with id '" + ownerid + "' does not exist.");
             JsonNode json = request.body().asJson();
             TasksDTO tasksDTO = Json.fromJson(json, TasksDTO.class);
+            if (taskService.getByTitle(tasksDTO.getTitle()).isPresent())
+                return badRequest("A task with title: " + tasksDTO.getTitle() + "already exists.");
             tasksDTO.setOwnerId(ownerid);
             if (tasksDTO.getStatus() == null) {
                 tasksDTO.setStatus(Status.active);

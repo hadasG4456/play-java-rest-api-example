@@ -1,5 +1,8 @@
 package data.domain;
 
+import org.checkerframework.framework.qual.DefaultQualifier;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
@@ -71,6 +74,7 @@ public class TasksDO {
     }
 
     public void setOwnerId(String ownerId) {
+
         this.ownerId = ownerId;
     }
 

@@ -40,6 +40,19 @@ public class TasksDAO {
         criteriaQuery.select(root).where(predicateForPersonId);
         return entityManager.createQuery(criteriaQuery).getResultList();
     }
+    public List<TasksDO> find(String ownerId, Status status) { //bool just to seperate between find by person and find all
+        EntityManager entityManager = jpaApi.em(ENTITY_MANAGER_NAME);
+
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<TasksDO> criteriaQuery = criteriaBuilder.createQuery(TasksDO.class);
+        Root<TasksDO> root = criteriaQuery.from(TasksDO.class);
+
+        Predicate predicateForPersonId = criteriaBuilder.equal(root.get("ownerId"), ownerId); // get only tasks with owner id
+        Predicate predicateForTaskStatus = criteriaBuilder.equal(root.get("status"), status);
+        Predicate finalPred = criteriaBuilder.and(predicateForPersonId, predicateForTaskStatus);
+        criteriaQuery.select(root).where(finalPred);
+        return entityManager.createQuery(criteriaQuery).getResultList();
+    }
 
     public void delete(String id, String ownerId) {
         jpaApi.withTransaction(entityManager -> {

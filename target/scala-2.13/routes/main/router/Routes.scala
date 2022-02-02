@@ -53,6 +53,12 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>/tasks/""", """controllers.TasksController.allTasks(id:String, status:String ?= null)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>/tasks/""", """controllers.TasksController.createTask(id:String, request:Request)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/tasks/""" + "$" + """id<[^/]+>""", """controllers.TasksController.getTask(id:String)"""),
+    ("""PATCH""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/tasks/""" + "$" + """id<[^/]+>""", """controllers.TasksController.patchTask(id:String, request:Request)"""),
+    ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/tasks/""" + "$" + """id<[^/]+>""", """controllers.TasksController.deleteTask(id:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/tasks/""" + "$" + """id<[^/]+>/status""", """controllers.TasksController.getStatus(id:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/tasks/""" + "$" + """id<[^/]+>/owner""", """controllers.TasksController.getOwner(id:String)"""),
+    ("""PUT""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/tasks/""" + "$" + """id<[^/]+>/status""", """controllers.TasksController.putStatus(id:String, request:Request)"""),
+    ("""PUT""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/tasks/""" + "$" + """id<[^/]+>/owner""", """controllers.TasksController.putOwner(id:String, request:Request)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -246,6 +252,120 @@ class Routes(
     )
   )
 
+  // @LINE:26
+  private[this] lazy val controllers_TasksController_patchTask10_route = Route("PATCH",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/tasks/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_TasksController_patchTask10_invoker = createInvoker(
+    
+    (req:play.mvc.Http.Request) =>
+      TasksController_2.patchTask(fakeValue[String], fakeValue[play.mvc.Http.Request]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.TasksController",
+      "patchTask",
+      Seq(classOf[String], classOf[play.mvc.Http.Request]),
+      "PATCH",
+      this.prefix + """api/tasks/""" + "$" + """id<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:28
+  private[this] lazy val controllers_TasksController_deleteTask11_route = Route("DELETE",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/tasks/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_TasksController_deleteTask11_invoker = createInvoker(
+    TasksController_2.deleteTask(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.TasksController",
+      "deleteTask",
+      Seq(classOf[String]),
+      "DELETE",
+      this.prefix + """api/tasks/""" + "$" + """id<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:30
+  private[this] lazy val controllers_TasksController_getStatus12_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/tasks/"), DynamicPart("id", """[^/]+""",true), StaticPart("/status")))
+  )
+  private[this] lazy val controllers_TasksController_getStatus12_invoker = createInvoker(
+    TasksController_2.getStatus(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.TasksController",
+      "getStatus",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """api/tasks/""" + "$" + """id<[^/]+>/status""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:32
+  private[this] lazy val controllers_TasksController_getOwner13_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/tasks/"), DynamicPart("id", """[^/]+""",true), StaticPart("/owner")))
+  )
+  private[this] lazy val controllers_TasksController_getOwner13_invoker = createInvoker(
+    TasksController_2.getOwner(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.TasksController",
+      "getOwner",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """api/tasks/""" + "$" + """id<[^/]+>/owner""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:34
+  private[this] lazy val controllers_TasksController_putStatus14_route = Route("PUT",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/tasks/"), DynamicPart("id", """[^/]+""",true), StaticPart("/status")))
+  )
+  private[this] lazy val controllers_TasksController_putStatus14_invoker = createInvoker(
+    
+    (req:play.mvc.Http.Request) =>
+      TasksController_2.putStatus(fakeValue[String], fakeValue[play.mvc.Http.Request]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.TasksController",
+      "putStatus",
+      Seq(classOf[String], classOf[play.mvc.Http.Request]),
+      "PUT",
+      this.prefix + """api/tasks/""" + "$" + """id<[^/]+>/status""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:36
+  private[this] lazy val controllers_TasksController_putOwner15_route = Route("PUT",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/tasks/"), DynamicPart("id", """[^/]+""",true), StaticPart("/owner")))
+  )
+  private[this] lazy val controllers_TasksController_putOwner15_invoker = createInvoker(
+    
+    (req:play.mvc.Http.Request) =>
+      TasksController_2.putOwner(fakeValue[String], fakeValue[play.mvc.Http.Request]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.TasksController",
+      "putOwner",
+      Seq(classOf[String], classOf[play.mvc.Http.Request]),
+      "PUT",
+      this.prefix + """api/tasks/""" + "$" + """id<[^/]+>/owner""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -310,6 +430,45 @@ class Routes(
     case controllers_TasksController_getTask9_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
         controllers_TasksController_getTask9_invoker.call(TasksController_2.getTask(id))
+      }
+  
+    // @LINE:26
+    case controllers_TasksController_patchTask10_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_TasksController_patchTask10_invoker.call(
+          req => TasksController_2.patchTask(id, req))
+      }
+  
+    // @LINE:28
+    case controllers_TasksController_deleteTask11_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_TasksController_deleteTask11_invoker.call(TasksController_2.deleteTask(id))
+      }
+  
+    // @LINE:30
+    case controllers_TasksController_getStatus12_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_TasksController_getStatus12_invoker.call(TasksController_2.getStatus(id))
+      }
+  
+    // @LINE:32
+    case controllers_TasksController_getOwner13_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_TasksController_getOwner13_invoker.call(TasksController_2.getOwner(id))
+      }
+  
+    // @LINE:34
+    case controllers_TasksController_putStatus14_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_TasksController_putStatus14_invoker.call(
+          req => TasksController_2.putStatus(id, req))
+      }
+  
+    // @LINE:36
+    case controllers_TasksController_putOwner15_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_TasksController_putOwner15_invoker.call(
+          req => TasksController_2.putOwner(id, req))
       }
   }
 }

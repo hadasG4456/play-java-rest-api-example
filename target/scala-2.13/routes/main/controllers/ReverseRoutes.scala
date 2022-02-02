@@ -77,10 +77,22 @@ package controllers {
     }
 
   
+    // @LINE:28
+    def deleteTask(id:String): Call = {
+      
+      Call("DELETE", _prefix + { _defaultPrefix } + "api/tasks/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+    }
+  
     // @LINE:20
     def allTasks(id:String, status:String = null): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "api/people/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)) + "/tasks/" + play.core.routing.queryString(List(if(status == null) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("status", status)))))
+    }
+  
+    // @LINE:26
+    def patchTask(id:String): Call = {
+      
+      Call("PATCH", _prefix + { _defaultPrefix } + "api/tasks/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
     // @LINE:22
@@ -89,10 +101,34 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "api/people/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)) + "/tasks/")
     }
   
+    // @LINE:34
+    def putStatus(id:String): Call = {
+      
+      Call("PUT", _prefix + { _defaultPrefix } + "api/tasks/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)) + "/status")
+    }
+  
+    // @LINE:30
+    def getStatus(id:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "api/tasks/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)) + "/status")
+    }
+  
+    // @LINE:36
+    def putOwner(id:String): Call = {
+      
+      Call("PUT", _prefix + { _defaultPrefix } + "api/tasks/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)) + "/owner")
+    }
+  
     // @LINE:24
     def getTask(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "api/tasks/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+    }
+  
+    // @LINE:32
+    def getOwner(id:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "api/tasks/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)) + "/owner")
     }
   
   }

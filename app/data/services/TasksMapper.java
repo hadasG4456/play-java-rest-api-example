@@ -16,7 +16,6 @@ public class TasksMapper {
         dto.setOwnerId(domain.getOwnerId());
         dto.setDetails(domain.getDetails());
         dto.setStatus((domain.getStatus()));
-        System.out.println(dto.getId());
         return dto;
     }
 
@@ -28,11 +27,6 @@ public class TasksMapper {
         domain.setDueDate(dto.getDueDate());
         domain.setStatus(dto.getStatus());
         domain.setOwnerId(dto.getOwnerId());
-        System.out.println(domain.getId());
-        System.out.println(domain.getTitle());
-        System.out.println(domain.getDetails());
-        System.out.println(domain.getStatus());
-        System.out.println(domain.getOwnerId());
         return domain;
     }
 }

@@ -9,7 +9,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
-import java.util.UUID;
 
 public class TasksDAO {
     private static final String ENTITY_MANAGER_NAME = "default";
@@ -27,6 +26,18 @@ public class TasksDAO {
 
     public TasksDO find(String id) {
         return jpaApi.em(ENTITY_MANAGER_NAME).find(TasksDO.class, id);
+    }
+
+    public TasksDO findByTitle(String title) {
+        EntityManager entityManager = jpaApi.em(ENTITY_MANAGER_NAME);
+
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<TasksDO> criteriaQuery = criteriaBuilder.createQuery(TasksDO.class);
+        Root<TasksDO> root = criteriaQuery.from(TasksDO.class);
+
+        Predicate predicateForTitle = criteriaBuilder.equal(root.get("title"), title); // get only tasks with owner id
+        criteriaQuery.select(root).where(predicateForTitle);
+        return entityManager.createQuery(criteriaQuery).getSingleResult();
     }
 
     public List<TasksDO> find(String ownerId, boolean bool) { //bool just to seperate between find by person and find all
@@ -77,4 +88,5 @@ public class TasksDAO {
 
         return tasksDO;
     }
+
 }

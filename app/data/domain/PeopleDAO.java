@@ -45,7 +45,8 @@ public class PeopleDAO {
     }
 
     public PeopleDO update(PeopleDO peopleDO) {
-        jpaApi.withTransaction(entityManager -> {entityManager.merge(peopleDO);});
+        jpaApi.withTransaction(entityManager -> {entityManager.merge(peopleDO);
+            entityManager.flush();});
         return peopleDO;
     }
 }

@@ -108,12 +108,32 @@ package controllers.javascript {
     }
 
   
+    // @LINE:28
+    def deleteTask: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TasksController.deleteTask",
+      """
+        function(id0) {
+          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "api/tasks/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
     // @LINE:20
     def allTasks: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TasksController.allTasks",
       """
         function(id0,status1) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0)) + "/tasks/" + _qS([(status1 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("status", status1))])})
+        }
+      """
+    )
+  
+    // @LINE:26
+    def patchTask: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TasksController.patchTask",
+      """
+        function(id0) {
+          return _wA({method:"PATCH", url:"""" + _prefix + { _defaultPrefix } + """" + "api/tasks/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
         }
       """
     )
@@ -128,12 +148,52 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:34
+    def putStatus: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TasksController.putStatus",
+      """
+        function(id0) {
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "api/tasks/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0)) + "/status"})
+        }
+      """
+    )
+  
+    // @LINE:30
+    def getStatus: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TasksController.getStatus",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/tasks/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0)) + "/status"})
+        }
+      """
+    )
+  
+    // @LINE:36
+    def putOwner: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TasksController.putOwner",
+      """
+        function(id0) {
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "api/tasks/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0)) + "/owner"})
+        }
+      """
+    )
+  
     // @LINE:24
     def getTask: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TasksController.getTask",
       """
         function(id0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/tasks/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:32
+    def getOwner: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TasksController.getOwner",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/tasks/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0)) + "/owner"})
         }
       """
     )

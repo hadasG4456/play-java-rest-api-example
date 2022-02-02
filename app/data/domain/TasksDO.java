@@ -1,5 +1,6 @@
 package data.domain;
 
+import com.typesafe.config.Optional;
 import org.checkerframework.framework.qual.DefaultQualifier;
 import org.hibernate.annotations.Type;
 
@@ -8,14 +9,14 @@ import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "tasks")
+@Table(name = "TasksDO")
 public class TasksDO {
     @Id
     @Column(name = "id", nullable = false, unique = true)
 //    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private String id;
 
-    @Column (name = "title", nullable = false)
+    @Column (name = "title", nullable = false, unique = true)
     private String title;
 
     @Column (name = "details", nullable = false)
@@ -26,6 +27,7 @@ public class TasksDO {
     private Date dueDate;
 
     @Column (name = "status", nullable = false)
+    @Optional
     private Status status = Status.active;
 
     @Type(type = "string")

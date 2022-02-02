@@ -2,6 +2,7 @@ package data.services;
 import com.google.inject.Inject;
 import data.domain.PeopleDAO;
 import data.domain.PeopleDO;
+import data.domain.TasksDO;
 import data.dto.PeopleDTO;
 
 import java.util.List;
@@ -38,13 +39,18 @@ public class PeopleService {
         if (fromDb == null) {
             return Optional.empty();
         }
+        PeopleDO peopleDO = PeopleMapper.fromTransfer(peopleDTO);
 
-//        fromDb.setId(peopleDTO.getId());
-        fromDb.setName(peopleDTO.getName());
-        fromDb.setEmails(peopleDTO.getEmails());
-        fromDb.setFavoriteProgrammingLanguage(peopleDTO.getFavoriteProgrammingLanguage());
-        fromDb = peopleDAO.update(fromDb);
-
+        if(peopleDO.getName() != null) {
+            fromDb.setName(peopleDTO.getName());
+        }
+        if(peopleDO.getEmails() != null) {
+            fromDb.setEmails(peopleDTO.getEmails());
+        }
+        if(peopleDO.getFavoriteProgrammingLanguage() != null) {
+            fromDb.setFavoriteProgrammingLanguage(peopleDTO.getFavoriteProgrammingLanguage());
+        }
+        peopleDO = peopleDAO.update(fromDb);
         return Optional.of(PeopleMapper.toTransfer(fromDb));
     }
 

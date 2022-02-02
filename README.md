@@ -34,8 +34,7 @@ For example: `SELECT c FROM Country c WHERE c.population > :p` would turn to:
 which may seem longer, but it helps us keep it simple with longer, more complex queries while also gaining the benefits of using java and not a string of SQL, like type safety, etc.
 ### Parsing JSONs
 As far as parsing the JSONs received from the HTTP request, Play made it for us. Play is using Jackson to handle the JSON, and could instantly create an object from the JSON, using the `Json.fromJson(JsonNode, object.class)`. This method created us the DTO, which we could then use to merge with our persistence layer.
-### Summation queries
-TODO 
+
 
 ## UML diagram of the project
 

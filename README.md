@@ -39,7 +39,6 @@ TODO
 
 ## UML diagram of the project
 
-You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
 ```mermaid
 sequenceDiagram
 Client ->> Routes.conf/Model: HTTP Request
@@ -55,3 +54,6 @@ Service -x Controller: DO (Collection)
 Controller -x Routes.conf/Model: DO (Collection) 
 Routes.conf/Model -x Client: DO (Collection)
 ```
+Appearntly Github doesn't work well with [Mermaid](https://mermaidjs.github.io/), so here's a picture of the UML:
+![image](https://user-images.githubusercontent.com/73893106/152239423-1e8134ec-d63c-4c66-8fb9-376e745d9ffa.png)
+

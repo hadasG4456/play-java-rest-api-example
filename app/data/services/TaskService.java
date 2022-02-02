@@ -18,8 +18,9 @@ public class TaskService {
 
     public List<TasksDTO> getAll(String ownerId) {
         System.out.println("get all tasks by id of owner");
-        List<TasksDO> tasksDOList = tasksDAO.find(ownerId, true);
-        return tasksDOList.stream().map(domain -> TasksMapper.toTransfer(domain)).collect(Collectors.toList());
+//        List<TasksDO> tasksDOList = tasksDAO.find(ownerId, true);
+//        return tasksDOList.stream().map(domain -> TasksMapper.toTransfer(domain)).collect(Collectors.toList());
+        return new LinkedList<TasksDTO>();
     }
 
     public Optional<TasksDTO> getById(String id) {

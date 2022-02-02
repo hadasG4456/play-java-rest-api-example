@@ -13,29 +13,25 @@ import _root_.play.libs.F
 
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
-  // @LINE:3
-  HomeController_0: controllers.HomeController,
-  // @LINE:7
-  PeopleController_1: controllers.PeopleController,
-  // @LINE:20
-  TasksController_2: controllers.TasksController,
+  // @LINE:2
+  PeopleController_0: controllers.PeopleController,
+  // @LINE:15
+  TasksController_1: controllers.TasksController,
   val prefix: String
 ) extends GeneratedRouter {
 
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
-    // @LINE:3
-    HomeController_0: controllers.HomeController,
-    // @LINE:7
-    PeopleController_1: controllers.PeopleController,
-    // @LINE:20
-    TasksController_2: controllers.TasksController
-  ) = this(errorHandler, HomeController_0, PeopleController_1, TasksController_2, "/")
+    // @LINE:2
+    PeopleController_0: controllers.PeopleController,
+    // @LINE:15
+    TasksController_1: controllers.TasksController
+  ) = this(errorHandler, PeopleController_0, TasksController_1, "/")
 
   def withPrefix(addPrefix: String): Routes = {
     val prefix = play.api.routing.Router.concatPrefix(addPrefix, this.prefix)
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_0, PeopleController_1, TasksController_2, prefix)
+    new Routes(errorHandler, PeopleController_0, TasksController_1, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -43,8 +39,6 @@ class Routes(
   }
 
   def documentation = List(
-    ("""GET""", this.prefix, """controllers.HomeController.index"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """hello""", """controllers.HomeController.hello"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""", """controllers.PeopleController.allPeople"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>""", """controllers.PeopleController.getPerson(id:String)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""", """controllers.PeopleController.createPerson(request:Request)"""),
@@ -66,48 +60,12 @@ class Routes(
   }}
 
 
-  // @LINE:3
-  private[this] lazy val controllers_HomeController_index0_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix)))
-  )
-  private[this] lazy val controllers_HomeController_index0_invoker = createInvoker(
-    HomeController_0.index,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.HomeController",
-      "index",
-      Nil,
-      "GET",
-      this.prefix + """""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:5
-  private[this] lazy val controllers_HomeController_hello1_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("hello")))
-  )
-  private[this] lazy val controllers_HomeController_hello1_invoker = createInvoker(
-    HomeController_0.hello,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.HomeController",
-      "hello",
-      Nil,
-      "GET",
-      this.prefix + """hello""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:7
-  private[this] lazy val controllers_PeopleController_allPeople2_route = Route("GET",
+  // @LINE:2
+  private[this] lazy val controllers_PeopleController_allPeople0_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/")))
   )
-  private[this] lazy val controllers_PeopleController_allPeople2_invoker = createInvoker(
-    PeopleController_1.allPeople,
+  private[this] lazy val controllers_PeopleController_allPeople0_invoker = createInvoker(
+    PeopleController_0.allPeople,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.PeopleController",
@@ -115,17 +73,17 @@ class Routes(
       Nil,
       "GET",
       this.prefix + """api/people/""",
-      """""",
+      """ People:""",
       Seq()
     )
   )
 
-  // @LINE:9
-  private[this] lazy val controllers_PeopleController_getPerson3_route = Route("GET",
+  // @LINE:4
+  private[this] lazy val controllers_PeopleController_getPerson1_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_PeopleController_getPerson3_invoker = createInvoker(
-    PeopleController_1.getPerson(fakeValue[String]),
+  private[this] lazy val controllers_PeopleController_getPerson1_invoker = createInvoker(
+    PeopleController_0.getPerson(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.PeopleController",
@@ -138,14 +96,14 @@ class Routes(
     )
   )
 
-  // @LINE:12
-  private[this] lazy val controllers_PeopleController_createPerson4_route = Route("POST",
+  // @LINE:7
+  private[this] lazy val controllers_PeopleController_createPerson2_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/")))
   )
-  private[this] lazy val controllers_PeopleController_createPerson4_invoker = createInvoker(
+  private[this] lazy val controllers_PeopleController_createPerson2_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
-      PeopleController_1.createPerson(fakeValue[play.mvc.Http.Request]),
+      PeopleController_0.createPerson(fakeValue[play.mvc.Http.Request]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.PeopleController",
@@ -158,14 +116,14 @@ class Routes(
     )
   )
 
-  // @LINE:14
-  private[this] lazy val controllers_PeopleController_patchPerson5_route = Route("PATCH",
+  // @LINE:9
+  private[this] lazy val controllers_PeopleController_patchPerson3_route = Route("PATCH",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_PeopleController_patchPerson5_invoker = createInvoker(
+  private[this] lazy val controllers_PeopleController_patchPerson3_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
-      PeopleController_1.patchPerson(fakeValue[String], fakeValue[play.mvc.Http.Request]),
+      PeopleController_0.patchPerson(fakeValue[String], fakeValue[play.mvc.Http.Request]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.PeopleController",
@@ -178,12 +136,12 @@ class Routes(
     )
   )
 
-  // @LINE:16
-  private[this] lazy val controllers_PeopleController_deletePerson6_route = Route("DELETE",
+  // @LINE:11
+  private[this] lazy val controllers_PeopleController_deletePerson4_route = Route("DELETE",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_PeopleController_deletePerson6_invoker = createInvoker(
-    PeopleController_1.deletePerson(fakeValue[String]),
+  private[this] lazy val controllers_PeopleController_deletePerson4_invoker = createInvoker(
+    PeopleController_0.deletePerson(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.PeopleController",
@@ -196,12 +154,12 @@ class Routes(
     )
   )
 
-  // @LINE:20
-  private[this] lazy val controllers_TasksController_allTasks7_route = Route("GET",
+  // @LINE:15
+  private[this] lazy val controllers_TasksController_allTasks5_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/"), DynamicPart("id", """[^/]+""",true), StaticPart("/tasks/")))
   )
-  private[this] lazy val controllers_TasksController_allTasks7_invoker = createInvoker(
-    TasksController_2.allTasks(fakeValue[String], fakeValue[String]),
+  private[this] lazy val controllers_TasksController_allTasks5_invoker = createInvoker(
+    TasksController_1.allTasks(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.TasksController",
@@ -214,14 +172,14 @@ class Routes(
     )
   )
 
-  // @LINE:22
-  private[this] lazy val controllers_TasksController_createTask8_route = Route("POST",
+  // @LINE:17
+  private[this] lazy val controllers_TasksController_createTask6_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/"), DynamicPart("id", """[^/]+""",true), StaticPart("/tasks/")))
   )
-  private[this] lazy val controllers_TasksController_createTask8_invoker = createInvoker(
+  private[this] lazy val controllers_TasksController_createTask6_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
-      TasksController_2.createTask(fakeValue[String], fakeValue[play.mvc.Http.Request]),
+      TasksController_1.createTask(fakeValue[String], fakeValue[play.mvc.Http.Request]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.TasksController",
@@ -234,12 +192,12 @@ class Routes(
     )
   )
 
-  // @LINE:24
-  private[this] lazy val controllers_TasksController_getTask9_route = Route("GET",
+  // @LINE:19
+  private[this] lazy val controllers_TasksController_getTask7_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/tasks/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_TasksController_getTask9_invoker = createInvoker(
-    TasksController_2.getTask(fakeValue[String]),
+  private[this] lazy val controllers_TasksController_getTask7_invoker = createInvoker(
+    TasksController_1.getTask(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.TasksController",
@@ -252,14 +210,14 @@ class Routes(
     )
   )
 
-  // @LINE:26
-  private[this] lazy val controllers_TasksController_patchTask10_route = Route("PATCH",
+  // @LINE:21
+  private[this] lazy val controllers_TasksController_patchTask8_route = Route("PATCH",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/tasks/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_TasksController_patchTask10_invoker = createInvoker(
+  private[this] lazy val controllers_TasksController_patchTask8_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
-      TasksController_2.patchTask(fakeValue[String], fakeValue[play.mvc.Http.Request]),
+      TasksController_1.patchTask(fakeValue[String], fakeValue[play.mvc.Http.Request]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.TasksController",
@@ -272,12 +230,12 @@ class Routes(
     )
   )
 
-  // @LINE:28
-  private[this] lazy val controllers_TasksController_deleteTask11_route = Route("DELETE",
+  // @LINE:23
+  private[this] lazy val controllers_TasksController_deleteTask9_route = Route("DELETE",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/tasks/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_TasksController_deleteTask11_invoker = createInvoker(
-    TasksController_2.deleteTask(fakeValue[String]),
+  private[this] lazy val controllers_TasksController_deleteTask9_invoker = createInvoker(
+    TasksController_1.deleteTask(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.TasksController",
@@ -290,12 +248,12 @@ class Routes(
     )
   )
 
-  // @LINE:30
-  private[this] lazy val controllers_TasksController_getStatus12_route = Route("GET",
+  // @LINE:25
+  private[this] lazy val controllers_TasksController_getStatus10_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/tasks/"), DynamicPart("id", """[^/]+""",true), StaticPart("/status")))
   )
-  private[this] lazy val controllers_TasksController_getStatus12_invoker = createInvoker(
-    TasksController_2.getStatus(fakeValue[String]),
+  private[this] lazy val controllers_TasksController_getStatus10_invoker = createInvoker(
+    TasksController_1.getStatus(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.TasksController",
@@ -308,12 +266,12 @@ class Routes(
     )
   )
 
-  // @LINE:32
-  private[this] lazy val controllers_TasksController_getOwner13_route = Route("GET",
+  // @LINE:27
+  private[this] lazy val controllers_TasksController_getOwner11_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/tasks/"), DynamicPart("id", """[^/]+""",true), StaticPart("/owner")))
   )
-  private[this] lazy val controllers_TasksController_getOwner13_invoker = createInvoker(
-    TasksController_2.getOwner(fakeValue[String]),
+  private[this] lazy val controllers_TasksController_getOwner11_invoker = createInvoker(
+    TasksController_1.getOwner(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.TasksController",
@@ -326,14 +284,14 @@ class Routes(
     )
   )
 
-  // @LINE:34
-  private[this] lazy val controllers_TasksController_putStatus14_route = Route("PUT",
+  // @LINE:29
+  private[this] lazy val controllers_TasksController_putStatus12_route = Route("PUT",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/tasks/"), DynamicPart("id", """[^/]+""",true), StaticPart("/status")))
   )
-  private[this] lazy val controllers_TasksController_putStatus14_invoker = createInvoker(
+  private[this] lazy val controllers_TasksController_putStatus12_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
-      TasksController_2.putStatus(fakeValue[String], fakeValue[play.mvc.Http.Request]),
+      TasksController_1.putStatus(fakeValue[String], fakeValue[play.mvc.Http.Request]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.TasksController",
@@ -346,14 +304,14 @@ class Routes(
     )
   )
 
-  // @LINE:36
-  private[this] lazy val controllers_TasksController_putOwner15_route = Route("PUT",
+  // @LINE:31
+  private[this] lazy val controllers_TasksController_putOwner13_route = Route("PUT",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/tasks/"), DynamicPart("id", """[^/]+""",true), StaticPart("/owner")))
   )
-  private[this] lazy val controllers_TasksController_putOwner15_invoker = createInvoker(
+  private[this] lazy val controllers_TasksController_putOwner13_invoker = createInvoker(
     
     (req:play.mvc.Http.Request) =>
-      TasksController_2.putOwner(fakeValue[String], fakeValue[play.mvc.Http.Request]),
+      TasksController_1.putOwner(fakeValue[String], fakeValue[play.mvc.Http.Request]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.TasksController",
@@ -369,106 +327,94 @@ class Routes(
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
-    // @LINE:3
-    case controllers_HomeController_index0_route(params@_) =>
+    // @LINE:2
+    case controllers_PeopleController_allPeople0_route(params@_) =>
       call { 
-        controllers_HomeController_index0_invoker.call(HomeController_0.index)
+        controllers_PeopleController_allPeople0_invoker.call(PeopleController_0.allPeople)
       }
   
-    // @LINE:5
-    case controllers_HomeController_hello1_route(params@_) =>
-      call { 
-        controllers_HomeController_hello1_invoker.call(HomeController_0.hello)
+    // @LINE:4
+    case controllers_PeopleController_getPerson1_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_PeopleController_getPerson1_invoker.call(PeopleController_0.getPerson(id))
       }
   
     // @LINE:7
-    case controllers_PeopleController_allPeople2_route(params@_) =>
+    case controllers_PeopleController_createPerson2_route(params@_) =>
       call { 
-        controllers_PeopleController_allPeople2_invoker.call(PeopleController_1.allPeople)
+        controllers_PeopleController_createPerson2_invoker.call(
+          req => PeopleController_0.createPerson(req))
       }
   
     // @LINE:9
-    case controllers_PeopleController_getPerson3_route(params@_) =>
+    case controllers_PeopleController_patchPerson3_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_PeopleController_getPerson3_invoker.call(PeopleController_1.getPerson(id))
+        controllers_PeopleController_patchPerson3_invoker.call(
+          req => PeopleController_0.patchPerson(id, req))
       }
   
-    // @LINE:12
-    case controllers_PeopleController_createPerson4_route(params@_) =>
-      call { 
-        controllers_PeopleController_createPerson4_invoker.call(
-          req => PeopleController_1.createPerson(req))
-      }
-  
-    // @LINE:14
-    case controllers_PeopleController_patchPerson5_route(params@_) =>
+    // @LINE:11
+    case controllers_PeopleController_deletePerson4_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_PeopleController_patchPerson5_invoker.call(
-          req => PeopleController_1.patchPerson(id, req))
+        controllers_PeopleController_deletePerson4_invoker.call(PeopleController_0.deletePerson(id))
       }
   
-    // @LINE:16
-    case controllers_PeopleController_deletePerson6_route(params@_) =>
-      call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_PeopleController_deletePerson6_invoker.call(PeopleController_1.deletePerson(id))
-      }
-  
-    // @LINE:20
-    case controllers_TasksController_allTasks7_route(params@_) =>
+    // @LINE:15
+    case controllers_TasksController_allTasks5_route(params@_) =>
       call(params.fromPath[String]("id", None), params.fromQuery[String]("status", Some(null))) { (id, status) =>
-        controllers_TasksController_allTasks7_invoker.call(TasksController_2.allTasks(id, status))
+        controllers_TasksController_allTasks5_invoker.call(TasksController_1.allTasks(id, status))
       }
   
-    // @LINE:22
-    case controllers_TasksController_createTask8_route(params@_) =>
+    // @LINE:17
+    case controllers_TasksController_createTask6_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_TasksController_createTask8_invoker.call(
-          req => TasksController_2.createTask(id, req))
+        controllers_TasksController_createTask6_invoker.call(
+          req => TasksController_1.createTask(id, req))
       }
   
-    // @LINE:24
-    case controllers_TasksController_getTask9_route(params@_) =>
+    // @LINE:19
+    case controllers_TasksController_getTask7_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_TasksController_getTask9_invoker.call(TasksController_2.getTask(id))
+        controllers_TasksController_getTask7_invoker.call(TasksController_1.getTask(id))
       }
   
-    // @LINE:26
-    case controllers_TasksController_patchTask10_route(params@_) =>
+    // @LINE:21
+    case controllers_TasksController_patchTask8_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_TasksController_patchTask10_invoker.call(
-          req => TasksController_2.patchTask(id, req))
+        controllers_TasksController_patchTask8_invoker.call(
+          req => TasksController_1.patchTask(id, req))
       }
   
-    // @LINE:28
-    case controllers_TasksController_deleteTask11_route(params@_) =>
+    // @LINE:23
+    case controllers_TasksController_deleteTask9_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_TasksController_deleteTask11_invoker.call(TasksController_2.deleteTask(id))
+        controllers_TasksController_deleteTask9_invoker.call(TasksController_1.deleteTask(id))
       }
   
-    // @LINE:30
-    case controllers_TasksController_getStatus12_route(params@_) =>
+    // @LINE:25
+    case controllers_TasksController_getStatus10_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_TasksController_getStatus12_invoker.call(TasksController_2.getStatus(id))
+        controllers_TasksController_getStatus10_invoker.call(TasksController_1.getStatus(id))
       }
   
-    // @LINE:32
-    case controllers_TasksController_getOwner13_route(params@_) =>
+    // @LINE:27
+    case controllers_TasksController_getOwner11_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_TasksController_getOwner13_invoker.call(TasksController_2.getOwner(id))
+        controllers_TasksController_getOwner11_invoker.call(TasksController_1.getOwner(id))
       }
   
-    // @LINE:34
-    case controllers_TasksController_putStatus14_route(params@_) =>
+    // @LINE:29
+    case controllers_TasksController_putStatus12_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_TasksController_putStatus14_invoker.call(
-          req => TasksController_2.putStatus(id, req))
+        controllers_TasksController_putStatus12_invoker.call(
+          req => TasksController_1.putStatus(id, req))
       }
   
-    // @LINE:36
-    case controllers_TasksController_putOwner15_route(params@_) =>
+    // @LINE:31
+    case controllers_TasksController_putOwner13_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_TasksController_putOwner15_invoker.call(
-          req => TasksController_2.putOwner(id, req))
+        controllers_TasksController_putOwner13_invoker.call(
+          req => TasksController_1.putOwner(id, req))
       }
   }
 }

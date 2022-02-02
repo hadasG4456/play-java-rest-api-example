@@ -1,9 +1,4 @@
 # People:
-
-GET     /                           controllers.HomeController.index
-
-GET     /hello                       controllers.HomeController.hello
-
 GET     /api/people/                      controllers.PeopleController.allPeople
 
 GET    /api/people/:id                 controllers.PeopleController.getPerson(id: String)

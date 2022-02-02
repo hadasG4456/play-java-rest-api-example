@@ -1,16 +1,13 @@
 package data.dto;
 
-import java.util.UUID;
-
+/**
+ * This DTO represents the structure of the PeopleDO table.
+ * contain storage and methods related to the table.
+ */
 public class PeopleDTO {
     String id;
     String name, emails, favoriteProgrammingLanguage;
 
-//    public PeopleDTO(String name, String emails, String favoriteProgrammingLanguage) {
-//        this.name = name;
-//        this.emails = emails;
-//        this.favoriteProgrammingLanguage = favoriteProgrammingLanguage;
-//    }
 
     public String getId() {
         return id;

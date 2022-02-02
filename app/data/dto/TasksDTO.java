@@ -3,8 +3,11 @@ package data.dto;
 import data.domain.Status;
 
 import java.util.Date;
-import java.util.UUID;
 
+/**
+ * This DTO represents the structure of the TaskDO table.
+ * contain storage and methods related to the table.
+ */
 public class TasksDTO {
     String id, ownerId;
     String title, details;

@@ -1,8 +1,13 @@
 package data.domain;
 
 import javax.persistence.*;
-import java.util.UUID;
 
+/**
+ * This DO is the definition of the PeopleDO database in H2- it defines all the columns and the
+ * primary key of the table, and it has all the setters and getters for al of the fields.
+ * Columns - id (unique), name, emails (unique) and favoriteProgrammingLanguage.
+ * Primary key - id.
+ */
 @Entity
 @Table(name = "PeopleDO")
 public class PeopleDO {
@@ -50,6 +55,5 @@ public class PeopleDO {
     public void setId(String id) {
         this.id = id;
     }
-//    @Column
-//    private Tasks
+
 }

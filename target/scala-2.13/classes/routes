@@ -1,9 +1,4 @@
 # People:
-
-GET     /                           controllers.HomeController.index
-
-GET     /hello                       controllers.HomeController.hello
-
 GET     /api/people/                      controllers.PeopleController.allPeople
 
 GET    /api/people/:id                 controllers.PeopleController.getPerson(id: String)
@@ -23,3 +18,14 @@ POST    /api/people/:id/tasks/           controllers.TasksController.createTask(
 
 GET     /api/tasks/:id                  controllers.TasksController.getTask(id: String)
 
+PATCH   /api/tasks/:id                  controllers.TasksController.patchTask(id: String, request: Request)
+
+DELETE  /api/tasks/:id                  controllers.TasksController.deleteTask(id: String)
+
+GET     /api/tasks/:id/status           controllers.TasksController.getStatus(id: String)
+
+GET     /api/tasks/:id/owner            controllers.TasksController.getOwner(id: String)
+
+PUT     /api/tasks/:id/status           controllers.TasksController.putStatus(id: String, request: Request)
+
+PUT     /api/tasks/:id/owner           controllers.TasksController.putOwner(id: String, request: Request)

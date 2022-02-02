@@ -7,40 +7,10 @@ import play.api.routing.JavaScriptReverseRoute
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:3
+// @LINE:2
 package controllers.javascript {
 
-  // @LINE:3
-  class ReverseHomeController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:3
-    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.index",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + """"})
-        }
-      """
-    )
-  
-    // @LINE:5
-    def hello: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.hello",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "hello"})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:7
+  // @LINE:2
   class ReversePeopleController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -48,7 +18,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:7
+    // @LINE:2
     def allPeople: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PeopleController.allPeople",
       """
@@ -58,7 +28,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:16
+    // @LINE:11
     def deletePerson: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PeopleController.deletePerson",
       """
@@ -68,7 +38,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:14
+    // @LINE:9
     def patchPerson: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PeopleController.patchPerson",
       """
@@ -78,7 +48,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:9
+    // @LINE:4
     def getPerson: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PeopleController.getPerson",
       """
@@ -88,7 +58,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:12
+    // @LINE:7
     def createPerson: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PeopleController.createPerson",
       """
@@ -100,7 +70,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:20
+  // @LINE:15
   class ReverseTasksController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -108,7 +78,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:28
+    // @LINE:23
     def deleteTask: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TasksController.deleteTask",
       """
@@ -118,7 +88,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:20
+    // @LINE:15
     def allTasks: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TasksController.allTasks",
       """
@@ -128,7 +98,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:26
+    // @LINE:21
     def patchTask: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TasksController.patchTask",
       """
@@ -138,7 +108,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:22
+    // @LINE:17
     def createTask: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TasksController.createTask",
       """
@@ -148,7 +118,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:34
+    // @LINE:29
     def putStatus: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TasksController.putStatus",
       """
@@ -158,7 +128,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:30
+    // @LINE:25
     def getStatus: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TasksController.getStatus",
       """
@@ -168,7 +138,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:36
+    // @LINE:31
     def putOwner: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TasksController.putOwner",
       """
@@ -178,7 +148,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:24
+    // @LINE:19
     def getTask: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TasksController.getTask",
       """
@@ -188,7 +158,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:32
+    // @LINE:27
     def getOwner: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TasksController.getOwner",
       """

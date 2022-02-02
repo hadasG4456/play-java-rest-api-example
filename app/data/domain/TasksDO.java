@@ -1,19 +1,22 @@
 package data.domain;
 
 import com.typesafe.config.Optional;
-import org.checkerframework.framework.qual.DefaultQualifier;
 import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import java.util.Date;
-import java.util.UUID;
+
+/**
+ * This DO is the definition of the TaskDO database in H2- it defines all the columns and the
+ * primary key of the table, and it has all the setters and getters for al of the fields.
+ * Columns - id (unique), title (unique), details, duedate, status and ownerId.
+ * Primary key - id.
+ */
 
 @Entity
 @Table(name = "TasksDO")
 public class TasksDO {
     @Id
     @Column(name = "id", nullable = false, unique = true)
-//    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private String id;
 
     @Column (name = "title", nullable = false, unique = true)
@@ -75,10 +78,7 @@ public class TasksDO {
         this.status = status;
     }
 
-    public void setOwnerId(String ownerId) {
-
-        this.ownerId = ownerId;
-    }
+    public void setOwnerId(String ownerId) {this.ownerId = ownerId;}
 
     public void setId(String id) { this.id = id;}
 }

@@ -43,7 +43,7 @@ public class PeopleController extends Controller {
             if (person.isPresent())
                return ok(Json.toJson(person.get()));
         } catch (Exception e) {
-            return badRequest("A person with the id '" + id + "' does not exist.");
+            return notFound("A person with the id '" + id + "' does not exist.");
         }
         return notFound("A person with the id '" + id + "' does not exist.");
     }

@@ -112,8 +112,8 @@ package controllers.javascript {
     def allTasks: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TasksController.allTasks",
       """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0)) + "/tasks/"})
+        function(id0,status1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/people/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0)) + "/tasks/" + _qS([(status1 == null ? null : (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("status", status1))])})
         }
       """
     )

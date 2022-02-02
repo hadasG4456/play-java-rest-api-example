@@ -78,9 +78,9 @@ package controllers {
 
   
     // @LINE:20
-    def allTasks(id:String): Call = {
+    def allTasks(id:String, status:String = null): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "api/people/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)) + "/tasks/")
+      Call("GET", _prefix + { _defaultPrefix } + "api/people/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)) + "/tasks/" + play.core.routing.queryString(List(if(status == null) None else Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("status", status)))))
     }
   
     // @LINE:22

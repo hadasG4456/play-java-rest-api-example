@@ -9,7 +9,7 @@ import java.util.UUID;
 public class TasksDO {
     @Id
     @Column(name = "id", nullable = false, unique = true)
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+//    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private String id;
 
     @Column (name = "title", nullable = false)
@@ -23,8 +23,10 @@ public class TasksDO {
     private Date dueDate;
 
     @Column (name = "status", nullable = false)
-    private String status; //TODO: create a status class
+    private Status status = Status.active;
 
+    @Type(type = "string")
+    @Lob
     @Column (name = "ownerId", nullable = false)
     private String ownerId;
 
@@ -44,7 +46,7 @@ public class TasksDO {
         return dueDate;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
@@ -64,11 +66,13 @@ public class TasksDO {
         this.dueDate = dueDate;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
     public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
     }
+
+    public void setId(String id) { this.id = id;}
 }

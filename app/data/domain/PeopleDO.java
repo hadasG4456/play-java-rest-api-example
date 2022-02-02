@@ -19,8 +19,6 @@ public class PeopleDO {
     @Column (name = "favoriteProgrammingLanguage", nullable = false)
     private String favoriteProgrammingLanguage;
 
-    //TODO: connect tasks to person
-
     public String getId() {
         return id;
     }

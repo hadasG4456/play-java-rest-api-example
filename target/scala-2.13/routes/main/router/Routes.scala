@@ -50,7 +50,7 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""", """controllers.PeopleController.createPerson(request:Request)"""),
     ("""PATCH""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>""", """controllers.PeopleController.patchPerson(id:String, request:Request)"""),
     ("""DELETE""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>""", """controllers.PeopleController.deletePerson(id:String)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>/tasks/""", """controllers.TasksController.allTasks(id:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>/tasks/""", """controllers.TasksController.allTasks(id:String, status:String ?= null)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/people/""" + "$" + """id<[^/]+>/tasks/""", """controllers.TasksController.createTask(id:String, request:Request)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/tasks/""" + "$" + """id<[^/]+>""", """controllers.TasksController.getTask(id:String)"""),
     Nil
@@ -195,12 +195,12 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/people/"), DynamicPart("id", """[^/]+""",true), StaticPart("/tasks/")))
   )
   private[this] lazy val controllers_TasksController_allTasks7_invoker = createInvoker(
-    TasksController_2.allTasks(fakeValue[String]),
+    TasksController_2.allTasks(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.TasksController",
       "allTasks",
-      Seq(classOf[String]),
+      Seq(classOf[String], classOf[String]),
       "GET",
       this.prefix + """api/people/""" + "$" + """id<[^/]+>/tasks/""",
       """""",
@@ -295,8 +295,8 @@ class Routes(
   
     // @LINE:20
     case controllers_TasksController_allTasks7_route(params@_) =>
-      call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_TasksController_allTasks7_invoker.call(TasksController_2.allTasks(id))
+      call(params.fromPath[String]("id", None), params.fromQuery[String]("status", Some(null))) { (id, status) =>
+        controllers_TasksController_allTasks7_invoker.call(TasksController_2.allTasks(id, status))
       }
   
     // @LINE:22

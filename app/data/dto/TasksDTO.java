@@ -1,11 +1,14 @@
 package data.dto;
 
+import data.domain.Status;
+
 import java.util.Date;
 import java.util.UUID;
 
 public class TasksDTO {
     String id, ownerId;
-    String title, details, status;
+    String title, details;
+    Status status;
     Date dueDate;
 
     public String getId() {
@@ -24,7 +27,7 @@ public class TasksDTO {
         return details;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
@@ -44,7 +47,7 @@ public class TasksDTO {
         this.details = details;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

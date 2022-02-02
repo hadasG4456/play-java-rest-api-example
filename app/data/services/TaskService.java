@@ -17,6 +17,11 @@ public class TaskService {
     private TasksDAO tasksDAO;
 
     public List<TasksDTO> getAll(String ownerId) {
+        List<TasksDO> tasksDOList = tasksDAO.find(ownerId, true);
+        return tasksDOList.stream().map(domain -> TasksMapper.toTransfer(domain)).collect(Collectors.toList());
+//        return new LinkedList<TasksDTO>();
+    }
+    public List<TasksDTO> getAll(String ownerId, Status status) {
         System.out.println("get all tasks by id of owner");
 //        List<TasksDO> tasksDOList = tasksDAO.find(ownerId, true);
 //        return tasksDOList.stream().map(domain -> TasksMapper.toTransfer(domain)).collect(Collectors.toList());

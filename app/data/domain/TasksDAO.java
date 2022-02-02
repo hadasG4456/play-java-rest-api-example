@@ -19,7 +19,9 @@ public class TasksDAO {
     protected JPAApi jpaApi;
 
     public TasksDO create(TasksDO tasksDO) {
+        System.out.println("create DO");
         jpaApi.withTransaction(entityManager -> { entityManager.persist(tasksDO); });
+        System.out.println("end create");
         return tasksDO;
     }
 

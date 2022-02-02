@@ -4,15 +4,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
 import data.dto.PeopleDTO;
 import data.services.PeopleService;
-import org.h2.engine.ConnectionInfo;
-import org.h2.engine.Database;
-import org.springframework.asm.SpringAsmInfo;
 import play.libs.Json;
 import play.mvc.*;
-
-import java.util.NoSuchElementException;
 import java.util.Optional;
-import java.util.UUID;
 
 /**
  * This controller contains an action to handle HTTP requests

@@ -17,6 +17,14 @@ import play.mvc.Result;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * This controller contains the actions to handle HTTP requests for tasks
+ * Responsible for the TasksDO table.
+ * (HTTP requests that have the beginning URL http://localhost:9000/api/people/?:id/tasks/ or
+ * http://localhost:9000/api/tasks/:id).
+ * For each function here- there is a helping function in TaskService.
+ */
+
 public class TasksController extends Controller {
     @Inject
     private TaskService taskService;
@@ -42,7 +50,7 @@ public class TasksController extends Controller {
             }
 //            tasksDTO.setOwnerId(person.get().getEmails());
             tasksDTO = taskService.create(tasksDTO);
-            return ok(Json.toJson(tasksDTO));
+            return created(Json.toJson(tasksDTO));
         } catch (RuntimeException e) {
             return badRequest("A person with id '" + ownerid + "' does not exist.");
         }

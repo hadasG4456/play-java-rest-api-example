@@ -14,7 +14,7 @@ The project was built using Play version 2.8.13 and as such requires:
 Simply running the command `sbt run` in command prompt.
 
 ## Usage
-You can use several different requests using [**Swagger**](mbarsinai.com/files/bgu/2022a/miniproj/swagger/)
+You can use several different requests using [**Swagger**](http://mbarsinai.com/files/bgu/2022a/miniproj/swagger/#/)
 |Request                        |Routings                            |
 |-------------------------------|------------------------------------|
 |GET all people                 |localhost:9000/api/people           |

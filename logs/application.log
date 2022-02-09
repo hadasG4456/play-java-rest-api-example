@@ -150,3 +150,10 @@
     play.filters.cors.CORSFilter
 
 2022-02-03 00:58:44,165 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-15 - Application started (Dev) (no global state)
+2022-02-03 01:09:58,561 [INFO] from play.api.internal.libs.concurrent.CoordinatedShutdownSupport in pool-163-thread-10 - Starting synchronous coordinated shutdown with ServerStoppedReason reason and 35000 milliseconds timeout
+2022-02-03 01:09:58,562 [INFO] from akka.actor.CoordinatedShutdown in play-dev-mode-akka.actor.default-dispatcher-13 - Running CoordinatedShutdown with reason [ServerStoppedReason]
+2022-02-03 01:09:58,562 [INFO] from play.core.server.AkkaHttpServer in pool-163-thread-10 - Stopping Akka HTTP server...
+2022-02-03 01:09:58,564 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-2 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2022-02-03 01:09:58,577 [INFO] from akka.actor.CoordinatedShutdown in application-akka.actor.default-dispatcher-6 - Running CoordinatedShutdown with reason [ApplicationStoppedReason]
+2022-02-03 01:09:58,580 [INFO] from play.api.db.HikariCPConnectionPool in application-akka.actor.internal-dispatcher-5 - Shutting down connection pool.
+2022-02-03 01:09:58,816 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-18 - Running provided shutdown stop hooks

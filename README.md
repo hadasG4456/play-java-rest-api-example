@@ -13,6 +13,26 @@ The project was built using Play version 2.8.13 and as such requires:
 
 Simply running the command `sbt run` in command prompt.
 
+## Usage
+You can use several different requests using [**Swagger**](mbarsinai.com/files/bgu/2022a/miniproj/swagger/)
+|Request                        |Routings                            |
+|-------------------------------|------------------------------------|
+|GET all people                 |localhost:9000/api/people           |
+|POST a person                  |localhost:9000/api/people           |
+|GET a person                   |localhost:9000/api/people/{id}      |
+|PATCH a person                 |localhost:9000/api/people/{id}      |
+|DELETE a person                |localhost:9000/api/people/{id}      |
+|GET all tasks of a person      |localhost:9000/api/people/{id}      |
+|POST a task to a person        |localhost:9000/api/people/{id}      |
+|GET a task                     |localhost:9000/api/tasks/{id}       |
+|PATCH a task                   |localhost:9000/api/tasks/{id}       |
+|DELETE a task                  |localhost:9000/api/tasks/{id}       |
+|GET a task's status            |localhost:9000/api/tasks/{id}/status|
+|PUT new status to a task       |localhost:9000/api/tasks/{id}/status|
+|GET a task's owner id          |localhost:9000/api/tasks/{id}/owner |
+|PUT new owner id to a task     |localhost:9000/api/tasks/{id}/status|
+
+
 ## Notes on the project
 
 ### Data corruption
